@@ -27,9 +27,9 @@ const MemberTreeData: MemberTree[] = [{
             title: 'Elus',
             children: [
                 {title: 'Administrateur'},
-                {title: 'Proffesseurs Assistants'},
-                {title: 'Proffesseurs Mobilité'},
-                {title: 'Proffesseurs de l\'Enseignement Supérieur'},
+                {title: 'P'},
+                {title: 'PM'},
+                {title: 'PES'},
                 {title: 'Le Technicien'},
                 {title: 'Etudiant **'},
             ]
