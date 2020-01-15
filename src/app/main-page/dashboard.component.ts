@@ -79,9 +79,13 @@ export class DashboardComponent {
     );
     private wWidth = '';
     private MemberTreeControl;
+    private user;
 
     constructor(private breakpointObserver: BreakpointObserver) {
         this.dataSource.data = MemberTreeData;
+        this.user = {
+          name: 'Mounir'
+        };
     }
     hasChild = (_: number, node: FlatNodeInterface) => node.expandable;
 
