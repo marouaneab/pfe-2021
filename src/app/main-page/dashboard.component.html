@@ -7,11 +7,6 @@
 			<span>Dashboard</span>
 		</mat-toolbar>
 		<mat-nav-list>
-			<!--<mat-tree [treeControl]="MemberTreeControl">
-				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-					<a mat-list-item href="dashboard/professors">Membres</a>
-				</mat-tree-node>
-			</mat-tree>-->
 			<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
 					<button mat-icon-button disabled></button>
