@@ -1,0 +1,85 @@
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav #drawer class="sidenav" fixedInViewport
+	             [mode]="(isHandset$ | async) ? 'over' : 'side'"
+	             [opened]="(isHandset$ | async) === false">
+		<mat-toolbar [style.height]="'' + toolbar._elementRef.nativeElement.offsetHeight+ 'px'" color="primary">
+			<mat-icon>dashboard</mat-icon>
+			<span>Dashboard</span>
+		</mat-toolbar>
+		<mat-nav-list>
+			<!--<mat-tree [treeControl]="MemberTreeControl">
+				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+					<a mat-list-item href="dashboard/professors">Membres</a>
+				</mat-tree-node>
+			</mat-tree>-->
+			<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+					<button mat-icon-button disabled></button>
+					<a mat-list-item href="dashboard/professors">{{node.title}}</a>
+				</mat-tree-node>
+				<mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+					<button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+						<mat-icon class="mat-icon-rtl-mirror">
+							{{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+						</mat-icon>
+					</button>{{node.title}}
+				</mat-tree-node>
+			</mat-tree>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content style="background-color: #eaeef3;">
+		<mat-toolbar #toolbar color="primary" style="overflow: auto;">
+			<mat-toolbar-row>
+				<button mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+					<mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+				</button>
+				<div class="image is-64x64 is-hidden-touch">
+					<img src="https://www.w3schools.com/howto/img_avatar.png"
+					     style="border-radius: 100%; border: 1px solid #b5b5b5;">
+				</div>
+				<div class="search-bar">
+					<mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
+						<mat-label>Search</mat-label>
+						<input type="search" matInput [(ngModel)]="value">
+						<div matSuffix class="is-flex">
+							<button *ngIf="value" (click)="value = ''" title="clear" @showHide
+							        mat-button mat-icon-button
+							        style="background-color: rgba(200, 200, 200, 0.3);" class="is-rounded">
+								<mat-icon>clear</mat-icon>
+							</button>
+							<div style="padding: 0 5px;"></div>
+							<button mat-button mat-icon-button class="pulse is-rounded">
+								<mat-icon>search</mat-icon>
+							</button>
+						</div>
+					</mat-form-field>
+				</div>
+				<div class="actions">
+					<button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
+						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewNotifications">
+							notifications
+						</mat-icon>
+					</button>
+					<button mat-button mat-icon-button [class.pulse]="hasNewMails">
+						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewMails">email
+						</mat-icon>
+					</button>
+					<button mat-button mat-icon-button>
+						<mat-icon>exit_to_app</mat-icon>
+					</button>
+				</div>
+			</mat-toolbar-row>
+		</mat-toolbar>
+		<!-- Add Content Here -->
+		<main class="columns is-marginless">
+			<div class="column">
+				<header class="has-text-centered is-size-2-fullhd is-size-3-tablet is-size-4-mobile">Welcome</header>
+				<div class="columns">
+					<div class="column">
+						<router-outlet name="content"></router-outlet>
+					</div>
+				</div>
+			</div>
+		</main>
+	</mat-sidenav-content>
+</mat-sidenav-container>

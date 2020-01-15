@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 300px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.search-bar {
+  flex-grow: 1;
+  .mat-form-field-suffix {
+    display: inline-flex;
+    align-items: center;
+  }
+  .mat-form-field-wrapper {padding-bottom: initial;}
+  [class*="mat-form-field-outline-"] {
+    border-color: white !important;
+  }
+  .mat-form-field {transition: all 0.5s;}
+  .mat-form-field-flex {align-items: stretch;}
+  .mat-form-field-should-float {
+    width: 100% !important;
+    .mat-form-field-outline-gap {
+      border-top: none;
+    }
+  }
+}
+
+div.mat-list-item-content {
+  padding-left: 0 !important;
+}

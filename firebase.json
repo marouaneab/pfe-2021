@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "m-pfe-2020",
+    "public": "dist/project",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
