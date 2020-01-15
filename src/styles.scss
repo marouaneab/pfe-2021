@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');*/
-@import "assets/bulma/sass/utilities/all";
-@import "assets/bulma/sass/base/helpers";
-@import "assets/bulma/sass/grid/columns";
-@import "assets/bulma/sass/elements/title";
-@import "assets/bulma/sass/elements/image";
+@import "assets/bulma/sass/utilities/_all.scss";
+@import "assets/bulma/sass/base/_helpers.scss";
+@import "assets/bulma/sass/grid/_columns.scss";
+@import "assets/bulma/sass/elements/_title.scss";
+@import "assets/bulma/sass/elements/_image.scss";
 
 
 /*********** Config My Theme for Angular Material Components ************/
-@import '../node_modules/@angular/material/theming';
+@import '~@angular/material/theming';
 /*********** Config Primary/Accent Color for Site ************/
 $primary: map_get($mat-indigo, A400);
 $accent: map_get($mat-pink, A400);
