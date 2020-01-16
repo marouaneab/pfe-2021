@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatBadgeModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {MatBadgeModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatExpansionModule} from '@angular/material';
 import {MatTreeModule} from '@angular/material/tree';
 import { DashboardComponent } from './main-page/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -35,7 +35,8 @@ import {environment} from '../environments/environment';
         FormsModule,
         MatBadgeModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        MatTreeModule
+        MatTreeModule,
+        MatExpansionModule
     ],
     providers: [],
     bootstrap: [AppComponent]

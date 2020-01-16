@@ -11,32 +11,6 @@ interface MemberTree {
     children?: MemberTree[];
 }
 
-const MemberTreeData: MemberTree[] = [{
-    title: 'Membres',
-    children: [
-        {
-            title: 'Par la loi',
-            children: [
-                {title: 'Le directeur'},
-                {title: 'Les adjoints'},
-                {title: 'Chefs du departements'}
-            ]
-        },
-        {title: 'Designés'},
-        {
-            title: 'Elus',
-            children: [
-                {title: 'Administrateur'},
-                {title: 'P'},
-                {title: 'PM'},
-                {title: 'PES'},
-                {title: 'Le Technicien'},
-                {title: 'Etudiant **'},
-            ]
-        }
-    ]
-}];
-
 interface FlatNodeInterface {
     expandable: boolean;
     title: string;
@@ -62,6 +36,31 @@ interface FlatNodeInterface {
 })
 export class DashboardComponent {
     value = '';
+    MemberTreeData: MemberTree[] = [{
+    title: 'Membres',
+    children: [
+        {
+            title: 'Par la loi',
+            children: [
+                {title: 'Le directeur'},
+                {title: 'Les adjoints'},
+                {title: 'Chefs du departements'}
+            ]
+        },
+        {title: 'Designés'},
+        {
+            title: 'Elus',
+            children: [
+                {title: 'Administrateur'},
+                {title: 'P'},
+                {title: 'PM'},
+                {title: 'PES'},
+                {title: 'Le Technicien'},
+                {title: 'Etudiant **'},
+            ]
+        }
+    ]
+}];
     treeControl = new FlatTreeControl<FlatNodeInterface>(node => node.level, node => node.expandable);
     treeFlattener = new MatTreeFlattener((node: MemberTree, level: number) => {
         return {
@@ -82,7 +81,7 @@ export class DashboardComponent {
     private user;
 
     constructor(private breakpointObserver: BreakpointObserver) {
-        this.dataSource.data = MemberTreeData;
+        this.dataSource.data = this.MemberTreeData;
         this.user = {
           name: 'Mounir'
         };
