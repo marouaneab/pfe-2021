@@ -10,13 +10,13 @@
 			<span>Dashboard</span>
 		</mat-toolbar>
 		<mat-nav-list>
-      <mat-accordion *ngFor="let el of MemberTreeData">
+      <mat-accordion *ngFor="let menu of MenuData">
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>{{ el.title }}</mat-panel-title>
+            <mat-panel-title>{{ menu.title }}</mat-panel-title>
           </mat-expansion-panel-header>
-          <mat-expansion-panel *ngFor="let item of el.children">
-            <mat-expansion-panel-header>{{ item.title }}</mat-expansion-panel-header>
+          <mat-expansion-panel *ngFor="let child of menu.children">
+            <mat-expansion-panel-header>{{ child.title }}</mat-expansion-panel-header>
           </mat-expansion-panel>
         </mat-expansion-panel>
       </mat-accordion>
@@ -25,14 +25,14 @@
         <ng-content class="header"></ng-content>
       </ng-template>
       <ng-template #expansionItem>
-        <ng-template *ngIf="" class="has-children"></ng-template>
+        <ng-template class="has-children"></ng-template>
       </ng-template>
 
       <!-- List
 			<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
 					<button mat-icon-button disabled></button>
-					<a mat-list-item href="dashboard/professors">{{node.title}}</a>
+					<a mat-list-child href="dashboard/professors">{{node.title}}</a>
 				</mat-tree-node>
 				<mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
 					<button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">

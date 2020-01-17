@@ -3,18 +3,10 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material';
 
-interface MemberTree {
+interface Menu {
     title: string;
-    children?: MemberTree[];
-}
-
-interface FlatNodeInterface {
-    expandable: boolean;
-    title: string;
-    level: number;
+    children?: Menu[];
 }
 
 @Component({
@@ -24,19 +16,14 @@ interface FlatNodeInterface {
     encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('showHide', [
-            transition(':enter', [
-                style({opacity: 0}),
-                animate('200ms', style({opacity: 1}))
-            ]),
-            transition(':leave', [
-                animate('100ms', style({opacity: 0}))
-            ])
+            transition(':enter', [style({opacity: 0}), animate('200ms', style({opacity: 1}))]),
+            transition(':leave', [animate('100ms', style({opacity: 0}))])
         ])
     ]
 })
 export class DashboardComponent {
     value = '';
-    MemberTreeData: MemberTree[] = [{
+    MenuData: Menu[] = [{
     title: 'Membres',
     children: [
         {
@@ -58,19 +45,17 @@ export class DashboardComponent {
                 {title: 'Le Technicien'},
                 {title: 'Etudiant **'},
             ]
+        },
+        {title: 'Calendrier'},
+        {
+            title: 'Boite de messagerie',
+            children: [
+                {title: 'Envoyé(s)'},
+                {title: 'Reçu(s)'}
+            ]
         }
-    ]
-}];
-    treeControl = new FlatTreeControl<FlatNodeInterface>(node => node.level, node => node.expandable);
-    treeFlattener = new MatTreeFlattener((node: MemberTree, level: number) => {
-        return {
-            expandable: !!node.children && node.children.length > 0,
-            title: node.title,
-            level,
-        };
-    }, node => node.level, node => node.expandable, node => node.children);
-    dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
+        ]
+    }];
 
     isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
         map(result => result.matches),
@@ -81,12 +66,10 @@ export class DashboardComponent {
     private user;
 
     constructor(private breakpointObserver: BreakpointObserver) {
-        this.dataSource.data = this.MemberTreeData;
         this.user = {
           name: 'Mounir'
         };
     }
-    hasChild = (_: number, node: FlatNodeInterface) => node.expandable;
 
     get hasNewNotifications() { return true; }
     get hasNewMails() { return true; }

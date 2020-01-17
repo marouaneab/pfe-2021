@@ -15,8 +15,8 @@ $list-item-hover-background-color: $background !default;
   border-radius: $list-radius;
   box-shadow: $list-shadow;
 
-  // &.is-hoverable > .list-item:hover:not(.is-active)
-  //   background-color: $list-item-hover-background-color
+  // &.is-hoverable > .list-child:hover:not(.is-active)
+  //   background-color: $list-child-hover-background-color
   //   cursor: pointer
 }
 
