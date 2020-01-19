@@ -1,1 +1,0 @@
-Xcopy /S /I /E /H C:\Users\Mounir\Desktop\PFE\Angular\Project C:\Users\Mounir\gitRepositories\stackblitz\ /EXCLUDE:C:\Users\Mounir\Desktop\PFE\Angular\Project\excluded.txt
