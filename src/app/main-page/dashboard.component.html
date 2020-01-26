@@ -19,6 +19,7 @@
 							<a *ngIf="! b.children">{{ b.title }}</a>
               <span *ngIf="b.children">{{ b.title }}</span>
 						</collapse-title>
+
 						<collapse-content>
 							<collapse *ngFor="let c of b.children">
 								<collapse-title>
