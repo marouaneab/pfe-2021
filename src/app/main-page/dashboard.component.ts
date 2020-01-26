@@ -23,27 +23,30 @@ interface Menu {
 })
 export class DashboardComponent {
     value = '';
-    MenuData: Menu[] = [{
-    title: 'Membres',
-    children: [
+    MenuData: Menu[] = [
         {
-            title: 'Par la loi',
+            title: 'Membres',
             children: [
-                {title: 'Le directeur'},
-                {title: 'Les adjoints'},
-                {title: 'Chefs du departements'}
-            ]
-        },
-        {title: 'Designés'},
-        {
-            title: 'Elus',
-            children: [
-                {title: 'Administrateur'},
-                {title: 'P'},
-                {title: 'PM'},
-                {title: 'PES'},
-                {title: 'Le Technicien'},
-                {title: 'Etudiant **'},
+                {
+                    title: 'Par la loi',
+                    children: [
+                        {title: 'Le directeur'},
+                        {title: 'Les adjoints'},
+                        {title: 'Chefs du departements'}
+                    ]
+                },
+                {title: 'Designés'},
+                {
+                    title: 'Elus',
+                    children: [
+                        {title: 'Administrateur'},
+                        {title: 'P'},
+                        {title: 'PM'},
+                        {title: 'PES'},
+                        {title: 'Le Technicien'},
+                        {title: 'Etudiant **'},
+                    ]
+                }
             ]
         },
         {title: 'Calendrier'},
@@ -54,8 +57,7 @@ export class DashboardComponent {
                 {title: 'Reçu(s)'}
             ]
         }
-        ]
-    }];
+    ];
 
     isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
         map(result => result.matches),
@@ -67,12 +69,19 @@ export class DashboardComponent {
 
     constructor(private breakpointObserver: BreakpointObserver) {
         this.user = {
-          name: 'Mounir'
+            name: 'Mounir'
         };
     }
 
-    get hasNewNotifications() { return true; }
-    get hasNewMails() { return true; }
+    get hasNewNotifications() {
+        return true;
+    }
 
-    width(f) { return this.wWidth === '' ? (this.wWidth = '' + f.offsetWidth + 'px') : this.wWidth; }
+    get hasNewMails() {
+        return true;
+    }
+
+    width(f) {
+        return this.wWidth === '' ? (this.wWidth = '' + f.offsetWidth + 'px') : this.wWidth;
+    }
 }

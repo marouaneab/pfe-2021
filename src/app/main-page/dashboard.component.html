@@ -9,41 +9,23 @@
 			<mat-icon>dashboard</mat-icon>
 			<span>Dashboard</span>
 		</mat-toolbar>
-		<mat-nav-list>
-      <mat-accordion *ngFor="let menu of MenuData">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>{{ menu.title }}</mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-expansion-panel *ngFor="let child of menu.children">
-            <mat-expansion-panel-header>{{ child.title }}</mat-expansion-panel-header>
-          </mat-expansion-panel>
-        </mat-expansion-panel>
-      </mat-accordion>
-
-      <ng-template #expansionTitle>
-        <ng-content class="header"></ng-content>
-      </ng-template>
-      <ng-template #expansionItem>
-        <ng-template class="has-children"></ng-template>
-      </ng-template>
-
-      <!-- List
-			<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-				<mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-					<button mat-icon-button disabled></button>
-					<a mat-list-child href="dashboard/professors">{{node.title}}</a>
-				</mat-tree-node>
-				<mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-					<button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
-						<mat-icon class="mat-icon-rtl-mirror">
-							{{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-						</mat-icon>
-					</button>{{node.title}}
-				</mat-tree-node>
-			</mat-tree>
-      -->
-		</mat-nav-list>
+		<div class="padding">
+			<collapse>
+				<collapse-title>
+					Hello
+				</collapse-title>
+				<collapse-content>
+					<collapse>
+						<collapse-title>
+							Hello 2
+						</collapse-title>
+						<collapse-content>
+							World 2
+						</collapse-content>
+					</collapse>
+				</collapse-content>
+			</collapse>
+		</div>
 	</mat-sidenav>
 	<mat-sidenav-content style="background-color: #eaeef3;">
 		<mat-toolbar #toolbar color="primary" style="overflow: auto;">
@@ -91,7 +73,8 @@
 		<!-- Add Content Here -->
 		<main class="columns is-marginless">
 			<div class="column">
-				<header class="has-text-centered is-size-2-fullhd is-size-3-tablet is-size-4-mobile">Welcome {{user.name }}</header>
+				<header class="has-text-centered is-size-2-fullhd is-size-3-tablet is-size-4-mobile">
+					Welcome {{user.name }}</header>
 				<div class="columns">
 					<div class="column">
 						<router-outlet name="content"></router-outlet>

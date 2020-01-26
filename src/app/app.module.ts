@@ -14,11 +14,17 @@ import { MatListModule } from '@angular/material/list';
 import {FormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import { CollapseComponent } from './tools/collapse/collapse.component';
+import { CollapseTitleComponent } from './tools/collapse/collapse-title/collapse-title.component';
+import { CollapseContentComponent } from './tools/collapse/collapse-content/collapse-content.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DashboardComponent,
+        CollapseComponent,
+        CollapseTitleComponent,
+        CollapseContentComponent,
     ],
     imports: [
         BrowserModule,

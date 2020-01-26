@@ -1,0 +1,12 @@
+.collapse-wrapper {
+  cursor: pointer;
+  .collapse-title {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+  }
+  .collapse-content {
+    padding-left: 16px;
+  }
+}
