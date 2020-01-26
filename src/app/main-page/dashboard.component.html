@@ -2,25 +2,30 @@
 	# it's just a test of the Developper Mounir
 -->
 <mat-sidenav-container class="sidenav-container">
-	<mat-sidenav #drawer class="sidenav" fixedInViewport
-	             [mode]="(isHandset$ | async) ? 'over' : 'side'"
-	             [opened]="(isHandset$ | async) === false">
+	<mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="(isHandset$ | async) === false">
 		<mat-toolbar [style.height]="'' + toolbar._elementRef.nativeElement.offsetHeight+ 'px'" color="primary">
 			<mat-icon>dashboard</mat-icon>
 			<span>Dashboard</span>
 		</mat-toolbar>
 		<div class="padding">
-			<collapse>
+			<collapse *ngFor="let a of MenuData">
 				<collapse-title>
-					Hello
+					{{a.title}}
 				</collapse-title>
 				<collapse-content>
-					<collapse>
+					<collapse *ngFor="let b of a.children">
 						<collapse-title>
-							Hello 2
+							<a *ngIf="! b.children">{{ b.title }}</a>
+              <span *ngIf="b.children">{{ b.title }}</span>
 						</collapse-title>
 						<collapse-content>
-							World 2
+							<collapse *ngFor="let c of b.children">
+								<collapse-title>
+									<a *ngIf="! c.children">{{ c.title }}</a>
+                  <span *ngIf="c.children">{{ c.title }}</span>
+								</collapse-title>
+							</collapse>
 						</collapse-content>
 					</collapse>
 				</collapse-content>
@@ -37,37 +42,37 @@
 					<img src="https://www.w3schools.com/howto/img_avatar.png"
 					     style="border-radius: 100%; border: 1px solid #b5b5b5;">
 				</div>
-				<div class="search-bar">
-					<mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
-						<mat-label>Search</mat-label>
-						<input type="search" matInput [(ngModel)]="value">
-						<div matSuffix class="is-flex">
-							<button *ngIf="value" (click)="value = ''" title="clear" @showHide
+					<div class="search-bar">
+						<mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
+							<mat-label>Search</mat-label>
+							<input type="search" matInput [(ngModel)]="value">
+							<div matSuffix class="is-flex">
+								<button *ngIf="value" (click)="value = ''" title="clear" @showHide
 							        mat-button mat-icon-button
 							        style="background-color: rgba(200, 200, 200, 0.3);" class="is-rounded">
 								<mat-icon>clear</mat-icon>
 							</button>
-							<div style="padding: 0 5px;"></div>
-							<button mat-button mat-icon-button class="pulse is-rounded">
+								<div style="padding: 0 5px;"></div>
+								<button mat-button mat-icon-button class="pulse is-rounded">
 								<mat-icon>search</mat-icon>
 							</button>
-						</div>
-					</mat-form-field>
-				</div>
-				<div class="actions">
-					<button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
+							</div>
+						</mat-form-field>
+					</div>
+					<div class="actions">
+						<button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
 						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewNotifications">
 							notifications
 						</mat-icon>
 					</button>
-					<button mat-button mat-icon-button [class.pulse]="hasNewMails">
+						<button mat-button mat-icon-button [class.pulse]="hasNewMails">
 						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewMails">email
 						</mat-icon>
 					</button>
-					<button mat-button mat-icon-button>
+						<button mat-button mat-icon-button>
 						<mat-icon>exit_to_app</mat-icon>
 					</button>
-				</div>
+					</div>
 			</mat-toolbar-row>
 		</mat-toolbar>
 		<!-- Add Content Here -->
