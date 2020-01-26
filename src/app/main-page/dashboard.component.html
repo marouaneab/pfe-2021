@@ -10,21 +10,18 @@
 		</mat-toolbar>
 		<div class="padding">
 			<collapse *ngFor="let a of MenuData">
-				<collapse-title>
+				<collapse-title [link]="''">
 					{{a.title}}
 				</collapse-title>
 				<collapse-content>
 					<collapse *ngFor="let b of a.children">
-						<collapse-title>
-							<a *ngIf="! b.children">{{ b.title }}</a>
-              <span *ngIf="b.children">{{ b.title }}</span>
+						<collapse-title [link]="b.children ? '' : '' + a.title + '/' + b.title">
+							{{ b.title }}
 						</collapse-title>
-
 						<collapse-content>
 							<collapse *ngFor="let c of b.children">
-								<collapse-title>
-									<a *ngIf="! c.children">{{ c.title }}</a>
-                  <span *ngIf="c.children">{{ c.title }}</span>
+								<collapse-title [link]="c.children ? '' : '' + a.title + '/' + b.title + '/' + c.title">
+									{{ c.title }}
 								</collapse-title>
 							</collapse>
 						</collapse-content>

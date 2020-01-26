@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'collapse-title',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collapse-title.component.scss']
 })
 export class CollapseTitleComponent implements OnInit {
+  @Input() link: string;
+
+  get hasLink() {
+    return this.link !== '';
+  }
 
   constructor() { }
 
