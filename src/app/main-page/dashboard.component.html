@@ -8,27 +8,19 @@
 			<mat-icon>dashboard</mat-icon>
 			<span>Dashboard</span>
 		</mat-toolbar>
-		<div class="padding">
-			<collapse *ngFor="let a of MenuData">
-				<collapse-title [link]="''">
-					{{a.title}}
-				</collapse-title>
-				<collapse-content>
-					<collapse *ngFor="let b of a.children">
-						<collapse-title [link]="b.children ? '' : '' + a.title + '/' + b.title">
-							{{ b.title }}
-						</collapse-title>
-						<collapse-content>
-							<collapse *ngFor="let c of b.children">
-								<collapse-title [link]="c.children ? '' : '' + a.title + '/' + b.title + '/' + c.title">
-									{{ c.title }}
-								</collapse-title>
-							</collapse>
-						</collapse-content>
-					</collapse>
-				</collapse-content>
-			</collapse>
-		</div>
+		<mat-nav-list>
+        <a class="padding" mat-list-item><div class="mat-list-text">Membres</div></a>
+        <a class="padding mat-list-text" mat-list-item>Calendrier</a>
+        <div mat-list-item>
+          <collapse>
+            <collapse-title>Boite de Messagerie</collapse-title>
+            <collapse-content>
+              <a mat-list-item>Envoyé</a>
+              <a mat-list-item>Reçu</a>
+            </collapse-content>
+          </collapse>
+        </div>
+      </mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content style="background-color: #eaeef3;">
 		<mat-toolbar #toolbar color="primary" style="overflow: auto;">
