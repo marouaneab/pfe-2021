@@ -12,6 +12,7 @@
 /*********** Config Primary/Accent Color for Site ************/
 $primary: map_get($mat-indigo, A400);
 $accent: map_get($mat-pink, A400);
+
 @include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 $candy-app-primary: mat-palette($mat-indigo, A200, A100, A400);
 $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
@@ -21,22 +22,6 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 /*********************************/
 
 html, body {height: 100%;}
-
-.primary {
-  &.color {
-    color: $primary;
-  }
-  background-color: $primary !important;
-  color: white;
-}
-
-.accent {
-  &.color {
-    color: $accent;
-  }
-  background-color: $accent !important;
-  color: white;
-}
 
 *:not(mat-icon) {margin: 0; font-family: Montserrat, sans-serif !important;}
 * {font-size: 16px;}
