@@ -17,6 +17,7 @@ import {environment} from '../environments/environment';
 import { CollapseComponent } from './tools/collapse/collapse.component';
 import { CollapseTitleComponent } from './tools/collapse/collapse-title/collapse-title.component';
 import { CollapseContentComponent } from './tools/collapse/collapse-content/collapse-content.component';
+import { AdminComponent } from './main-page/dashboard/admin/admin.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { CollapseContentComponent } from './tools/collapse/collapse-content/coll
         CollapseComponent,
         CollapseTitleComponent,
         CollapseContentComponent,
+        AdminComponent,
     ],
     imports: [
         BrowserModule,

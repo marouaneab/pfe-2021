@@ -65,7 +65,7 @@ export class DashboardComponent {
     );
     private wWidth = '';
     private MemberTreeControl;
-    private user;
+    user;
 
     constructor(private breakpointObserver: BreakpointObserver) {
         this.user = {
