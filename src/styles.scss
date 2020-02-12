@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');*/
-@import "assets/bulma/sass/utilities/_all.scss";
-@import "assets/bulma/sass/base/_helpers.scss";
-@import "assets/bulma/sass/grid/_columns.scss";
-@import "assets/bulma/sass/elements/_title.scss";
-@import "assets/bulma/sass/elements/_image.scss";
+@import "assets/bulma/sass/utilities/all";
+@import "assets/bulma/sass/base/helpers";
+@import "assets/bulma/sass/grid/columns";
+@import "assets/bulma/sass/elements/title";
+@import "assets/bulma/sass/elements/image";
+$card-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+@import "assets/bulma/sass/components/card";
+@import "assets/bulma/sass/layout/section";
 
 
 /*********** Config My Theme for Angular Material Components ************/
@@ -24,8 +27,8 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 html, body {height: 100%;}
 
 *:not(mat-icon) {margin: 0; font-family: Montserrat, sans-serif !important;}
-* {font-size: 16px;}
-.padding {padding: .2rem .5rem;}
+mat-icon {font-size: 24px !important}
+.padding {padding: .5rem 1rem;}
 
 mat-toolbar-row {
   height: auto !important;
