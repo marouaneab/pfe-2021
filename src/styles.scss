@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');
 @import "assets/bulma/sass/utilities/all";
 @import "assets/bulma/sass/base/helpers";
 @import "assets/bulma/sass/grid/columns";
@@ -8,7 +8,6 @@
 $card-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 @import "assets/bulma/sass/components/card";
 @import "assets/bulma/sass/layout/section";
-
 
 /*********** Config My Theme for Angular Material Components ************/
 @import '~@angular/material/theming';
@@ -70,3 +69,7 @@ button {
 }
 
 @include animation(pulse);
+
+.columns:not(:first-of-type) .section {
+  margin-top: -3rem !important;
+}

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "m-pfe-2020"
+    "default": "m-pfe-2020",
+    "pfe-2020": "pfe2020-9f95c"
   }
 }

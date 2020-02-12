@@ -1,5 +1,5 @@
 <div class="columns is-marginless">
-  <div class="column is-three-fifths section">
+  <section class="column is-three-fifths section">
     <div class="card" style="height: 100%">
       <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
         <div class="card-header-title">
@@ -10,18 +10,18 @@
         There's no event on {{selectedDate | date}}
       </div>
     </div>
-  </div>
-  <div class="column section">
+  </section>
+  <section class="column section">
     <mat-calendar
       class="card"
       style="background-color: white"
       [selected]="selectedDate"
       (selectedChange)="onSelect($event)"
     ></mat-calendar>
-  </div>
+  </section>
 </div>
 <div class="columns is-marginless">
-  <div class="column section">
+  <section class="column section">
     <div class="card">
       <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
         <div class="card-header-title">
@@ -32,5 +32,5 @@
         <app-user-card *ngFor="let i of [1, 2, 3, 4]"></app-user-card>
       </div>
     </div>
-  </div>
+  </section>
 </div>
