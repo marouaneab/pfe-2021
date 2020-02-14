@@ -27,6 +27,8 @@ import {CollapseTitleComponent} from './tools/collapse/collapse-title/collapse-t
 import {CollapseContentComponent} from './tools/collapse/collapse-content/collapse-content.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {UserCardComponent} from './user-card/user-card.component';
+import { MailBoxComponent } from './mail-box/mail-box.component';
+import { MessageComponent } from './mail-box/message/message.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import {UserCardComponent} from './user-card/user-card.component';
     CollapseContentComponent,
     AdminComponent,
     UserCardComponent,
+    MailBoxComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

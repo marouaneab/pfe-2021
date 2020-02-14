@@ -1,0 +1,31 @@
+<div class="padding">
+  <h1>Mail Box</h1>
+  <hr>
+  <div class="columns is-marginless">
+    <div class="column">
+      <div class="card">
+        <div class="card-content padding" style="height: 100%; background-color:#fff;">
+          <button
+            style="width: -moz-available" mat-button
+            *ngFor="let msg of messages" (click)="selectedMsg = msg">
+            {{msg.from}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-thirds">
+      <div class="card" style="background-color:#fff; height: 100%">
+        <div class="card-content is-paddingless">
+          <app-message
+            *ngIf="selectedMsg; else selectMsg"
+            [from]="selectedMsg.from"
+            [content]="selectedMsg.content">
+          </app-message>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #selectMsg>
+  <p class="padding">Select Message Please</p>
+</ng-template>
