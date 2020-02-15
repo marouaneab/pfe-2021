@@ -14,18 +14,31 @@
 
 .search-bar {
   flex-grow: 1;
+
   .mat-form-field-suffix {
     display: inline-flex;
     align-items: center;
   }
-  .mat-form-field-wrapper {padding-bottom: initial;}
+
+  .mat-form-field-wrapper {
+    padding-bottom: initial;
+  }
+
   [class*="mat-form-field-outline-"] {
     border-color: white !important;
   }
-  .mat-form-field {transition: all 0.5s;}
-  .mat-form-field-flex {align-items: stretch;}
+
+  .mat-form-field {
+    transition: all 0.5s;
+  }
+
+  .mat-form-field-flex {
+    align-items: stretch;
+  }
+
   .mat-form-field-should-float {
     width: 100% !important;
+
     .mat-form-field-outline-gap {
       border-top: none;
     }

@@ -23,7 +23,7 @@ import {CollapseComponent} from './tools/collapse/collapse.component';
 import {CollapseTitleComponent} from './tools/collapse/collapse-title/collapse-title.component';
 import {CollapseContentComponent} from './tools/collapse/collapse-content/collapse-content.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
-import { UserCardComponent} from './user-card/user-card.component';
+import {UserCardComponent} from './user-card/user-card.component';
 import {MatCheckboxModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
@@ -110,7 +110,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas : [NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {
 }

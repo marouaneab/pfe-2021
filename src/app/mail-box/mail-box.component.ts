@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-mail-box',
@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mail-box.component.scss']
 })
 export class MailBoxComponent implements OnInit {
-  messages: {from, content}[];
-  selectedMsg: {from, content};
+  messages: { from, content }[];
+  selectedMsg: { from, content };
 
   constructor() {
     this.messages = [

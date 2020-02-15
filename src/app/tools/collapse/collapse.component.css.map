@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["collapse.component.scss"],"names":[],"mappings":"AAAA;EACE;;AACA;EACE;EACA;EACA;EACA;;AAEF;EACE","file":"collapse.component.css"}
+{
+  "version": 3,
+  "sourceRoot": "",
+  "sources": [
+    "collapse.component.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACE;;AACA;EACE;EACA;EACA;EACA;;AAEF;EACE",
+  "file": "collapse.component.css"
+}

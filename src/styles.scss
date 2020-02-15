@@ -5,7 +5,8 @@
 @import "assets/bulma/sass/grid/columns";
 @import "assets/bulma/sass/elements/title";
 @import "assets/bulma/sass/elements/image";
-$card-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+$card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 @import "assets/bulma/sass/components/card";
 @import "assets/bulma/sass/layout/section";
 
@@ -23,15 +24,27 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include angular-material-theme($candy-app-theme);
 /*********************************/
 
-html, body {height: 100%;}
+html, body {
+  height: 100%;
+}
 
-*:not(mat-icon) {margin: 0; font-family: Montserrat, sans-serif !important;}
-mat-icon {font-size: 24px !important}
-.padding {padding: .5rem 1rem;}
+*:not(mat-icon) {
+  margin: 0;
+  font-family: Montserrat, sans-serif !important;
+}
+
+mat-icon {
+  font-size: 24px !important
+}
+
+.padding {
+  padding: .5rem 1rem;
+}
 
 mat-toolbar-row {
   height: auto !important;
   font-size: 16px;
+
   &, & > div {
     @extend .padding;
   }
@@ -39,6 +52,7 @@ mat-toolbar-row {
 
 button {
   text-transform: uppercase;
+
   &.no-up {
     text-transform: none;
   }
@@ -47,24 +61,37 @@ button {
 .actions {
   display: flex;
   flex-wrap: nowrap;
+
   button {
-    &:not(:first-child) {margin-left: 14px !important;}
-    &:not(:last-child) {margin-right: 14px !important;}
+    &:not(:first-child) {
+      margin-left: 14px !important;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px !important;
+    }
   }
 }
 
 .pulse {
   border-radius: 100%;
   background-color: rgba(200, 200, 200, 0.3);
-  box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
   animation: pulse 2s infinite;
-  &:hover {animation: none;}
+
+  &:hover {
+    animation: none;
+  }
 }
 
-@mixin animation($name, $radius: 15px){
+@mixin animation($name, $radius: 15px) {
   @keyframes #{$name} {
-    0% {box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);}
-    100% {box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);}
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);
+    }
   }
 }
 

@@ -17,7 +17,7 @@
       <div class="card" style="background-color:#fff; height: 100%">
         <div class="card-content is-paddingless">
           <app-message
-            *ngIf="selectedMsg; else selectMsg"
+            *ngIf="selectedMsg; else noMsgSelected"
             [from]="selectedMsg.from"
             [content]="selectedMsg.content">
           </app-message>
@@ -26,6 +26,6 @@
     </div>
   </div>
 </div>
-<ng-template #selectMsg>
+<ng-template #noMsgSelected>
   <p class="padding">Select Message Please</p>
 </ng-template>

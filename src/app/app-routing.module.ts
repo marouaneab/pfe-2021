@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './main-page/dashboard.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {MailBoxComponent} from './mail-box/mail-box.component';
@@ -31,4 +31,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
