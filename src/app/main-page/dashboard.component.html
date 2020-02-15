@@ -8,15 +8,27 @@
 			<mat-icon>dashboard</mat-icon>
 			<span>Dashboard</span>
 		</mat-toolbar>
-		<mat-nav-list>
-        <a class="padding" mat-list-item><div class="mat-list-text">Membres</div></a>
-        <a class="padding mat-list-text" mat-list-item>Calendrier</a>
+		<mat-nav-list style="align-content: stretch;">
+        <a class="padding" mat-list-item>
+			<mat-icon>account_circle</mat-icon>
+			<div class="mat-list-text">
+			Membres</div></a>
+        <a class="padding mat-list-text" mat-list-item>
+			<mat-icon>event</mat-icon>
+			Calendrier</a>
         <div>
           <collapse>
-            <collapse-title>Boite de Messagerie</collapse-title>
+			<collapse-title mat-icon-button>
+				<mat-icon>email</mat-icon>
+				Boite de Messagerie
+			</collapse-title>
             <collapse-content>
-              <a mat-list-item>Envoyé</a>
-              <a mat-list-item>Reçu</a>
+              <a mat-list-item>
+				<mat-icon>send</mat-icon>
+				Envoyé</a>
+              <a mat-list-item>
+				<mat-icon>done</mat-icon>  
+				Reçu</a>
             </collapse-content>
           </collapse>
         </div>
@@ -28,10 +40,6 @@
 				<button mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
 					<mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
 				</button>
-				<div class="image is-64x64 is-hidden-touch">
-					<img src="https://www.w3schools.com/howto/img_avatar.png"
-					     style="border-radius: 100%; border: 1px solid #b5b5b5;">
-				</div>
 					<div class="search-bar">
 						<mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
 							<mat-label>Search</mat-label>
@@ -49,6 +57,10 @@
 							</div>
 						</mat-form-field>
 					</div>
+				<div class="image is-64x64 is-hidden-touch">
+					<img src="https://www.w3schools.com/howto/img_avatar.png"
+					     style="border-radius: 100%; border: 1px solid #b5b5b5;">
+				</div>
 					<div class="actions">
 						<button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
 						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewNotifications">
@@ -60,12 +72,18 @@
 						</mat-icon>
 					</button>
 						<button mat-button mat-icon-button>
+							<mat-icon>help</mat-icon>
+						</button>
+					
+						<button mat-button mat-icon-button>
 						<mat-icon>exit_to_app</mat-icon>
 					</button>
+
 					</div>
 			</mat-toolbar-row>
 		</mat-toolbar>
 		<!-- Add Content Here -->
+		
 		<main>
       <router-outlet></router-outlet>
 		</main>
