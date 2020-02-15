@@ -16,21 +16,15 @@
       class="card"
       style="background-color: white"
       [selected]="selectedDate"
-      (selectedChange)="onSelect($event)"
-    ></mat-calendar>
+      (selectedChange)="onSelect($event)">
+  </mat-calendar>
   </section>
 </div>
-<div class="columns is-marginless">
-  <section class="column section">
-    <div class="card">
-      <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
-        <div class="card-header-title">
-          <h1>Users</h1>
-        </div>
-      </div>
-      <div class="card-content">
-        <app-user-card *ngFor="let i of [1, 2, 3, 4]"></app-user-card>
-      </div>
-    </div>
-  </section>
+<mat-card>
+  <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
+    <mat-card-title>Users</mat-card-title>
 </div>
+<mat-card-content>
+  <app-user-card></app-user-card>
+</mat-card-content>
+</mat-card>
