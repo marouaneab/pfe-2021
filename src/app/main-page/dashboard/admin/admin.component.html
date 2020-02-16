@@ -1,34 +1,6 @@
-<div class="columns is-marginless">
-  <section class="column is-three-fifths section">
-    <div class="card" style="height: 100%">
-      <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
-        <div class="card-header-title">
-          <h1>Events</h1>
-        </div>
-      </div>
-      <div class="card-content">
-        There's no event on {{selectedDate | date}}
-      </div>
-    </div>
-  </section>
-  <section class="column section">
-    <mat-calendar
-      class="card"
-      style="background-color: white"
-      [selected]="selectedDate"
-      (selectedChange)="onSelect($event)">
-    </mat-calendar>
-  </section>
-</div>
-<div class="columns is-marginless">
-  <section class="column section">
-    <div class="card">
-      <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
-        <div class="card-header-title"><h1>Users</h1></div>
-      </div>
-      <div class="card-content is-paddingless">
-        <app-user-card></app-user-card>
-      </div>
-    </div>
-  </section>
-</div>
+<section>
+  <event-card></event-card>
+</section>
+<section>
+  <users-table-card></users-table-card>
+</section>

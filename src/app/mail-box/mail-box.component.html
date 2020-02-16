@@ -6,19 +6,19 @@
     <div class="column">
       <div class="card" style="height: 100%">
         <div class="card-content padding" style="background-color:#fff;">
-          <div *ngFor="let msg of messages">
-            <div style="display: flex; width:100%; justify-content: space-between">
+          <div *ngFor="let msg of messages; let i = index; let last = last">
+            <div style="display: flex; width:100%; align-items: center">
               <button
                 [class.activeMsg]="msg === selectedMsg"
                 style="width: -moz-available; text-align: left" mat-button
-                (click)="selectedMsg = msg">
+                (click)="setSelectedMsg(msg)">
                 {{msg.from}}
               </button>
-              <div style="display: inline-block; width: 100px; height: 100%; border-radius: 100%"
-                   class="accent">
+              <div *ngIf="! msg.read"
+                   style="display: inline-block; width: 10px; height: 10px; border-radius: 100%; margin-left: 6px" class="accent">
               </div>
             </div>
-            <mat-divider *ngIf="msg !== messages[messages.length - 1]"></mat-divider>
+            <mat-divider *ngIf="! last"></mat-divider>
           </div>
         </div>
       </div>

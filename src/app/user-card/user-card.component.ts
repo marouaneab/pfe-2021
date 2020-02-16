@@ -197,7 +197,7 @@ const USER_DATA: Users[] = [
 ];
 
 @Component({
-  selector: 'app-user-card',
+  selector: 'users-table-card',
   templateUrl: './user-card.component.html',
   styleUrls: ['./user-card.component.scss'],
 })

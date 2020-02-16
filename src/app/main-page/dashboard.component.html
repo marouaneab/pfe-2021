@@ -10,30 +10,46 @@
     </mat-toolbar>
     <mat-nav-list style="align-content: stretch;">
       <a class="padding" mat-list-item>
-        <mat-icon>account_circle</mat-icon>
-        <div class="mat-list-text">
-          Membres
-        </div>
+        <span class="text-icon">
+          <mat-icon>account_circle</mat-icon>
+          <span>
+            Membres
+          </span>
+        </span>
       </a>
-      <a class="padding mat-list-text" mat-list-item>
-        <mat-icon>event</mat-icon>
-        Calendrier</a>
+      <mat-divider></mat-divider>
+      <a class="padding" mat-list-item>
+        <span class="text-icon">
+          <mat-icon>event</mat-icon>
+          <span>Calendrier</span>
+        </span>
+      </a>
+      <mat-divider></mat-divider>
       <div>
         <collapse>
-          <collapse-title mat-icon-button>
-            <mat-icon>email</mat-icon>
-            Boite de Messagerie
+          <collapse-title>
+            <span class="text-icon">
+              <mat-icon>email</mat-icon>
+              <span>Boite de Messagerie</span>
+            </span>
           </collapse-title>
           <collapse-content>
             <a mat-list-item>
-              <mat-icon>send</mat-icon>
-              Envoyé</a>
+              <span class="text-icon">
+                <mat-icon>send</mat-icon>
+                <span>Envoyé</span>
+              </span>
+            </a>
             <a mat-list-item>
-              <mat-icon>done</mat-icon>
-              Reçu</a>
+              <span class="text-icon">
+                <mat-icon>done</mat-icon>
+                <span>Reçu</span>
+              </span>
+            </a>
           </collapse-content>
         </collapse>
       </div>
+      <mat-divider></mat-divider>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content style="background-color: #eaeef3;">

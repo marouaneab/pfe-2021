@@ -49,6 +49,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MailBoxComponent} from './mail-box/mail-box.component';
 import {MessageComponent} from './mail-box/message/message.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MessageComponent} from './mail-box/message/message.component';
     AdminComponent,
     UserCardComponent,
     MailBoxComponent,
-    MessageComponent
+    MessageComponent,
+    EventCardComponent
   ],
   imports: [
     BrowserModule,

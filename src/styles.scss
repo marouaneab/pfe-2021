@@ -97,7 +97,7 @@ button {
 
 @include animation(pulse);
 
-.columns:not(:first-of-type) .section {
+section:not(:first-of-type) {
   margin-top: -3rem !important;
 }
 
@@ -115,9 +115,18 @@ button {
 
 .accent {
   background-color: map-get($candy-app-accent, default);
-  color: map-get($candy-app-accent, text);
+  color: white;
 }
 .primary {
   background-color: map-get($candy-app-primary, default);
-  color: map-get($candy-app-primary, text);
+  color: white;
+}
+span, div {
+  &.text-icon {
+    display: inline-flex;
+    align-items: center;
+    mat-icon {
+      margin: 0 6px;
+    }
+  }
 }

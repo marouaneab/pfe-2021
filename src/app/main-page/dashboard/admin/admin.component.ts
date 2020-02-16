@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,15 +7,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  selectedDate = new Date();
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-  }
-
-  onSelect($event: any) {
-    this.selectedDate = $event;
   }
 }
