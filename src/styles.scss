@@ -16,11 +16,11 @@ $card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 $primary: map_get($mat-indigo, A400);
 $accent: map_get($mat-pink, A400);
 
-@include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 $candy-app-primary: mat-palette($mat-indigo, A200, A100, A400);
 $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 $candy-app-warn: mat-palette($mat-red);
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+@include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 @include angular-material-theme($candy-app-theme);
 /*********************************/
 
@@ -99,4 +99,25 @@ button {
 
 .columns:not(:first-of-type) .section {
   margin-top: -3rem !important;
+}
+
+.btnGroupH {
+  &:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #a6a6a6;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.accent {
+  background-color: map-get($candy-app-accent, default);
+  color: map-get($candy-app-accent, text);
+}
+.primary {
+  background-color: map-get($candy-app-primary, default);
+  color: map-get($candy-app-primary, text);
 }

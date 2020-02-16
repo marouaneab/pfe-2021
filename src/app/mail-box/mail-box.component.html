@@ -1,25 +1,34 @@
 <div class="padding">
   <h1>Mail Box</h1>
   <hr>
-  <div class="columns is-marginless">
+  <br>
+  <div class="columns">
     <div class="column">
-      <div class="card">
-        <div class="card-content padding" style="height: 100%; background-color:#fff;">
-          <button
-            style="width: -moz-available" mat-button
-            *ngFor="let msg of messages" (click)="selectedMsg = msg">
-            {{msg.from}}
-          </button>
+      <div class="card" style="height: 100%">
+        <div class="card-content padding" style="background-color:#fff;">
+          <div *ngFor="let msg of messages">
+            <div style="display: flex; width:100%; justify-content: space-between">
+              <button
+                [class.activeMsg]="msg === selectedMsg"
+                style="width: -moz-available; text-align: left" mat-button
+                (click)="selectedMsg = msg">
+                {{msg.from}}
+              </button>
+              <div style="display: inline-block; width: 100px; height: 100%; border-radius: 100%"
+                   class="accent">
+              </div>
+            </div>
+            <mat-divider *ngIf="msg !== messages[messages.length - 1]"></mat-divider>
+          </div>
         </div>
       </div>
     </div>
     <div class="column is-two-thirds">
       <div class="card" style="background-color:#fff; height: 100%">
         <div class="card-content is-paddingless">
-          <app-message
-            *ngIf="selectedMsg; else noMsgSelected"
-            [from]="selectedMsg.from"
-            [content]="selectedMsg.content">
+          <app-message *ngIf="selectedMsg; else noMsgSelected">
+            <span class="msg-from">{{selectedMsg.from}}</span>
+            <span class="msg-content">{{selectedMsg.content}}</span>
           </app-message>
         </div>
       </div>
@@ -28,4 +37,6 @@
 </div>
 <ng-template #noMsgSelected>
   <p class="padding">Select Message Please</p>
+  <img src="https://www.jove.com/img/flying_email_illustration.png"
+       alt="Welcome" style="width: 100%">
 </ng-template>

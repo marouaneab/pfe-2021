@@ -202,10 +202,6 @@ const USER_DATA: Users[] = [
   styleUrls: ['./user-card.component.scss'],
 })
 
-/**
- * @title Table with pagination
- */
-
 export class UserCardComponent implements OnInit {
 
   displayedColumns: string[] = ['Uid', 'photo', 'nom', 'prenom', 'email', 'address', 'role'];
