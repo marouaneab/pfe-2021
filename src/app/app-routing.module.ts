@@ -3,9 +3,11 @@ import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './main-page/dashboard.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {MailBoxComponent} from './mail-box/mail-box.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
+  {path : 'login',component : LoginComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -22,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }
 ];

@@ -11,6 +11,8 @@ export interface Users {
   email: string;
   address: string;
   role: string;
+  department : string;
+  section ?:  string;
 }
 
 const USER_DATA: Users[] = [
@@ -21,7 +23,8 @@ const USER_DATA: Users[] = [
     prenom: 'Marouane',
     email: 'marouaneababou52@gmail.com',
     address: 'Marjane 2 Meknes',
-    role: 'Etudiant'
+    role: 'Etudiant',
+    department : 'Informatique',
   },
   {
     Uid: 2,
@@ -30,7 +33,8 @@ const USER_DATA: Users[] = [
     prenom: 'Bouaiche',
     email: 'Mounir.9@gmail.com',
     address: 'SebaaYoune',
-    role: 'Etudiant'
+    role: 'Etudiant',
+    department : 'Informatique',
   },
   {
     Uid: 3,
@@ -39,7 +43,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mohammed',
     email: 'mohamed.bennaser@gmail.com',
     address: 'Rabat',
-    role: 'Directeur'
+    role: 'Directeur',
+    department : 'Techniques de Commercialisation et de Communication',
   },
   {
     Uid: 4,
@@ -48,7 +53,8 @@ const USER_DATA: Users[] = [
     prenom: 'Najat',
     email: 'najat.bouras@gmail.com',
     address: 'Meknes',
-    role: 'Secrétariat du Directeur'
+    role: 'Secrétariat du Directeur',
+    department : '',
   },
   {
     Uid: 5,
@@ -57,7 +63,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mohammed',
     email: 'mohammed.bouachrine@gmail.com',
     address: 'Meknes',
-    role: 'Directeur Adjoint'
+    role: 'Directeur Adjoint',
+    department : 'Génie Electrique',
   },
   {
     Uid: 6,
@@ -66,7 +73,8 @@ const USER_DATA: Users[] = [
     prenom: 'Souad',
     email: 'benbrahim@est-umi.ac.ma',
     address: 'Rabat',
-    role: 'Secrétariat du Directeur Adjoint'
+    role: 'Secrétariat du Directeur Adjoint',
+    department : '',
   },
   {
     Uid: 7,
@@ -75,7 +83,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mohammed',
     email: 'baghdi.mohammed@est-umi.ac.ma',
     address: 'Rabat',
-    role: 'Secrétaire Général'
+    role: 'Secrétaire Général',
+    department : '',
   },
   {
     Uid: 8,
@@ -84,7 +93,8 @@ const USER_DATA: Users[] = [
     prenom: 'Saida',
     email: 'saida.chahir@est-umi.ac.ma',
     address: 'Meknes',
-    role: 'Service Scolarité'
+    role: 'Service Scolarité',
+    department : '',
   },
   {
     Uid: 9,
@@ -93,16 +103,19 @@ const USER_DATA: Users[] = [
     prenom: 'Fatiha',
     email: 'fatiha.regragui@est-umi.ac.ma',
     address: 'Rabat',
-    role: 'Chef du Département. Techniques de Management'
+    role: 'Chef du Département Techniques de Management',
+    department : 'Techniques de Management',
+    
   },
   {
     Uid: 10,
     photo: '',
-    nom: 'mrani',
+    nom: 'MRANI',
     prenom: 'nabil',
     email: 'nabil.mrani@gmail.com',
     address: 'meknes',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 11,
@@ -111,7 +124,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mohammed',
     email: 'mohammed.lahmer@gmail.com',
     address: 'Meknes',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 12,
@@ -120,7 +134,8 @@ const USER_DATA: Users[] = [
     prenom: 'Amina',
     email: 'amina.addadi@gmail.com',
     address: 'meknes',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 13,
@@ -129,7 +144,8 @@ const USER_DATA: Users[] = [
     prenom: 'Yassine',
     email: 'yassine.ghazali@gmail.com',
     address: 'meknes',
-    role: 'professeur'
+    role: 'professeur',
+    department : 'Informatique',
   },
   {
     Uid: 14,
@@ -138,7 +154,8 @@ const USER_DATA: Users[] = [
     prenom: 'Rajae',
     email: 'elouzzani.rajae@gmail.com',
     address: 'Casablanca',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 15,
@@ -147,7 +164,8 @@ const USER_DATA: Users[] = [
     prenom: 'Idriss',
     email: 'chana.idriss@gmail.com',
     address: 'Rabat',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 16,
@@ -156,7 +174,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mohammed',
     email: 'Mohammed.barrada@gmail.com',
     address: 'Rabat',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 17,
@@ -165,7 +184,8 @@ const USER_DATA: Users[] = [
     prenom: 'Mariya',
     email: 'benamer.mariya@gmail.com',
     address: 'Meknes',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 18,
@@ -174,7 +194,8 @@ const USER_DATA: Users[] = [
     prenom: 'Nabil',
     email: 'benamer.nabil@gmail.com',
     address: 'Meknes',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 19,
@@ -183,7 +204,8 @@ const USER_DATA: Users[] = [
     prenom: 'Samia',
     email: 'nasiri.samia@gmail.com',
     address: 'Rabat',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Informatique',
   },
   {
     Uid: 20,
@@ -192,7 +214,8 @@ const USER_DATA: Users[] = [
     prenom: 'Brahim',
     email: 'brahim.loummou@gmail.com',
     address: 'Casa',
-    role: 'Professeur'
+    role: 'Professeur',
+    department : 'Techniques de Management',
   }
 ];
 
@@ -204,7 +227,7 @@ const USER_DATA: Users[] = [
 
 export class UserCardComponent implements OnInit {
 
-  displayedColumns: string[] = ['Uid', 'photo', 'nom', 'prenom', 'email', 'address', 'role'];
+  displayedColumns: string[] = ['Uid', 'photo', 'nom', 'prenom', 'email', 'address', 'role','department'];
   dataSource = new MatTableDataSource<Users>(USER_DATA);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 

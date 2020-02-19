@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section ">
   <div class="card">
     <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
       <div class="card-header-title">
@@ -8,8 +8,8 @@
         </div>
       </div>
     </div>
-    <div class="card-content is-paddingless">
-      <table mat-table [dataSource]="dataSource" class="is-mobile is-desktop table-bordered">
+    <div class="card-content is-paddingless table is-desktop is-mobile" style="overflow: auto;">
+      <table mat-table [dataSource]="dataSource" class="table">
         <!-- Uid Column -->
         <ng-container matColumnDef="Uid">
           <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -17,13 +17,12 @@
         </ng-container>
         <!-- photo Column -->
         <ng-container matColumnDef="photo">
-          <th mat-header-cell *matHeaderCellDef></th>
+          <th mat-header-cell *matHeaderCellDef>Photo</th>
           <td mat-cell *matCellDef="let user">
-            <div class="image is-32x32 is-hidden-touch">
               <img src="https://www.w3schools.com/howto/img_avatar.png"
                    style="border-radius: 50%; border: 1px solid #b5b5b5; vertical-align: middle;"
+                   class="image is-32x32"
                    alt="profile picture">
-            </div>
           </td>
         </ng-container>
         <!-- nom Column -->
@@ -51,6 +50,12 @@
           <th mat-header-cell *matHeaderCellDef>Rôle</th>
           <td mat-cell *matCellDef="let user"> {{user.role}} </td>
         </ng-container>
+         <!--department column-->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Département </th>
+        <td mat-cell *matCellDef="let user"> {{user.department}} </td>
+      </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
