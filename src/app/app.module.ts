@@ -51,6 +51,7 @@ import {MailBoxComponent} from './mail-box/mail-box.component';
 import {MessageComponent} from './mail-box/message/message.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { LoginComponent } from './login/login.component';
+import { EventsComponent } from './event-card/events/events.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { LoginComponent } from './login/login.component';
     MailBoxComponent,
     MessageComponent,
     EventCardComponent,
-    LoginComponent
+    LoginComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

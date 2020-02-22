@@ -4,6 +4,7 @@ import {DashboardComponent} from './main-page/dashboard.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {MailBoxComponent} from './mail-box/mail-box.component';
 import { LoginComponent } from './login/login.component';
+import { EventsComponent } from './event-card/events/events.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'mailBox',
         component: MailBoxComponent
+      },
+      {
+        path : 'events',
+        component : EventsComponent
       }
     ]
   },
