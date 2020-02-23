@@ -1,8 +1,38 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title></mat-card-title>
-    </mat-card-header>
+
+<mat-card class="is-mobile is-desktop">
+             <mat-card-header class="card-header">
+                  <mat-card-title>Les réunions</mat-card-title>
+                </mat-card-header>
     <mat-card-content>
-        
+        <mat-form-field appearance="outline" >
+            <mat-label>Filtrer par date</mat-label>
+            <input matInput [matDatepicker]="date">
+            <mat-datepicker-toggle matSuffix [for]="date" (click)="french()"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+  <mat-label>Filtrer</mat-label>
+  <mat-select>
+    <mat-option>Tous</mat-option>
+    <mat-divider></mat-divider>
+    <mat-optgroup *ngFor="let f of FGroups" [label]="f.name">
+      <mat-option *ngFor="let type of f.type" [value]="type.value">
+        {{type.vValue}}
+      </mat-option>
+    </mat-optgroup>
+    <mat-divider></mat-divider>
+    <mat-option class="text-icon">
+        <a routerLink="">
+        <mat-icon>archive</mat-icon>
+      <span>Archivés</span> 
+    </a>
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+    <div class="control">
+        <button mat-button mat-icon-button>
+            <mat-icon>import_export</mat-icon>
+          </button>
+    </div>
     </mat-card-content>
 </mat-card>
