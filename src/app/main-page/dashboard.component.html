@@ -18,12 +18,37 @@
         </span>
       </a>
       <mat-divider></mat-divider>
-      <a class="padding" mat-list-item>
-        <span class="text-icon">
-          <mat-icon>event</mat-icon>
-          <span>Calendrier</span>
-        </span>
-      </a>
+      <div>
+        <collapse>
+          <collapse-title>
+            <span class="text-icon" style="margin-left: 6px;">
+              <img src="https://img.icons8.com/ios-filled/50/000000/meeting-room.png" class="image is-32x32 is-rounded">
+              &nbsp;
+              <span>Réunions</span>
+            </span>
+          </collapse-title>
+          <collapse-content>
+            <a mat-list-item>
+              <span class="text-icon">
+                <mat-icon>note_add</mat-icon>
+                <span>Ajouter une réunion</span>
+              </span>
+            </a>
+            <a mat-list-item>
+              <span class="text-icon">
+                <mat-icon>view_list</mat-icon>
+                <span>Listes des réunions</span>
+              </span>
+            </a>
+            <a mat-list-item>
+              <span class="text-icon">
+                <mat-icon>event</mat-icon>
+                <span>Calendrier</span>
+              </span>
+            </a>
+          </collapse-content>
+        </collapse>
+      </div>
       <mat-divider></mat-divider>
       <div>
         <collapse>

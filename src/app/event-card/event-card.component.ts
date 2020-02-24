@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'event-card',
   templateUrl: './event-card.component.html',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EventCardComponent implements OnInit {
   selectedDate = new Date();
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +18,7 @@ export class EventCardComponent implements OnInit {
   }
 
   addEvent() {
-    // go to add event page with the < selectedDate >
+      this.router.navigate(["/dashboard/events"]);
   }
 
 }
