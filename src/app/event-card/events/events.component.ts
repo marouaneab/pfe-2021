@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {MAT_MOMENT_DATE_FORMATS,MomentDateAdapter,MAT_MOMENT_DATE_ADAPTER_OPTIONS,} 
+import {MAT_MOMENT_DATE_FORMATS,MomentDateAdapter,MAT_MOMENT_DATE_ADAPTER_OPTIONS} 
             from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 interface Filter {
   value : string;
@@ -14,7 +15,30 @@ interface Fgroup {
   name : string;
   type : Filter [];
 }
-@Component({
+
+export interface Meeting {
+  id: number,
+  titre: string,
+  location: string,
+  objet: string,
+  status : string,
+  start: Date,
+  end: Date,
+  resume ?: File
+}
+
+const MEET_DATA: Meeting[] = [
+  {
+    id: 1,
+    titre: "Assemblée générale",
+    location: "Meknes",
+    objet: "Etudier les problèmes locaux, régionaux et nationaux",
+    status: "Publié",
+    start: new Date(2020, 1, 13, 18, 0, 0),
+    end: new Date(2020, 1, 13,19,0,0)
+  }]
+
+  @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss'],
@@ -44,7 +68,7 @@ export class EventsComponent implements OnInit {
  type : [
    {value : 'upcoming' ,vValue : 'Prochaine'},
    {value : 'in review',vValue : 'En révision'},
-   {value : 'in review',vValue : 'Publié'},
+   {value : 'published',vValue : 'Publié'},
    {value : 'cancelled' , vValue : 'Annulés'},
    {value : 'overdue', vValue : 'En retard'}
  ]
@@ -52,9 +76,15 @@ export class EventsComponent implements OnInit {
  }
 ]
 
+
   constructor(private _adapter: DateAdapter<any>) { }
+  
+  displayedColumns: string[] = ['id', 'titre', 'location', 'objet', 'status', 'start', 'end'];
+  dataSource = new MatTableDataSource<Meeting>(MEET_DATA);
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
   french() {
     this._adapter.setLocale('fr');

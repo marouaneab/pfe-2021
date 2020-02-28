@@ -18,13 +18,14 @@ password: string;
     if(this.username == 'admin' && this.password == 'admin'){
      this.router.navigate(["/dashboard"]);
     }
-    else if(this.username == '' || this.password == '') {
+    else if(this.username =='' || this.password == '') {
       alert("please fill the required fields")
     }
     else {
       alert ("invalid user");
     }
   }
-  }
+ 
+}
 
 
