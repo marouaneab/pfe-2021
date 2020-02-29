@@ -24,7 +24,7 @@ export interface Meeting {
   status : string,
   start: Date,
   end: Date,
-  resume ?: File
+  resume ?: string
 }
 
 const MEET_DATA: Meeting[] = [
@@ -35,7 +35,7 @@ const MEET_DATA: Meeting[] = [
     objet: "Etudier les problèmes locaux, régionaux et nationaux",
     status: "Publié",
     start: new Date(2020, 1, 13, 18, 0, 0),
-    end: new Date(2020, 1, 13,19,0,0)
+    end: new Date(2020, 1, 13,19,0,0),
   }]
 
   @Component({
@@ -79,7 +79,7 @@ export class EventsComponent implements OnInit {
 
   constructor(private _adapter: DateAdapter<any>) { }
   
-  displayedColumns: string[] = ['id', 'titre', 'location', 'objet', 'status', 'start', 'end'];
+  displayedColumns: string[] = ['id', 'titre', 'location', 'objet', 'status', 'start', 'end','edit'];
   dataSource = new MatTableDataSource<Meeting>(MEET_DATA);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
