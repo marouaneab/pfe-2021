@@ -2,5 +2,6 @@
   <div class="card-header-title">From:&nbsp;<ng-content select=".msg-from"></ng-content></div>
 </div>
 <div class="card-content">
-  <p><ng-content select=".msg-content"></ng-content></p>
+  <ng-content select=".msg-about"></ng-content>
+  <p style="margin-top: 6px;"><ng-content select=".msg-content"></ng-content></p>
 </div>
