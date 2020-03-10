@@ -48,3 +48,9 @@
 div.mat-list-item-content {
   padding-left: 0 !important;
 }
+
+@import "src/assets/theme";
+a.active {
+  background-color: $accent !important;
+  color: white !important;
+}

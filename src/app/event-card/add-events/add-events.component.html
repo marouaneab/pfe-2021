@@ -1,57 +1,68 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Ajouter une réunion</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
 
+<h1 mat-dialog-title>Ajouter une réunion</h1>
+<mat-divider></mat-divider>
+<mat-dialog-content >
+    
       <!--Titre-->
-        <mat-form-field class="titre">
-            <mat-label>Titre</mat-label>
-            <input matInput placeholder="ajouter une titre de réunion" required/>        
-        </mat-form-field>
+      <mat-form-field class="titre" appearance="fill"> 
+        <mat-label>Titre</mat-label>
+        <input matInput placeholder="ajouter un titre de réunion" required/>        
+    </mat-form-field>
 
-        <div style="display: flex;">
-          
-        <!--date de debut-->
-        <mat-form-field class="date">
-            <mat-label>Date de début</mat-label>
-            <input matInput [matDatepicker]="startDate" placeholder="mm/dd/yyyy" required>
-            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-            <mat-datepicker #startDate></mat-datepicker>
-          </mat-form-field>
+      <!--objet-->
+    <mat-form-field class="objet" appearance="fill"> 
+      <mat-label>Objet</mat-label>
+      <input matInput placeholder="objet de réunion " required/>        
+  </mat-form-field>
 
-        <!--temps de debut-->
-          <mat-form-field class="time">
-            <mat-label>Temps de début</mat-label>
-            <input matInput [ngxTimepicker]="Starttime" >
-            <ngx-material-timepicker #Starttime></ngx-material-timepicker>
-          </mat-form-field>
-        </div>
-
-        <div style="display: flex;">
-          
-        <!--date de fin-->
-        <mat-form-field class="date">
-          <mat-label>Date de fin</mat-label>
-          <input matInput [matDatepicker]="EndDate" placeholder="mm/dd/yyyy" required>
-          <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
-          <mat-datepicker #EndDate></mat-datepicker>
-        </mat-form-field>
-        <!--temps de fin-->
-        <mat-form-field class="time">
-          <mat-label>Temps de fin</mat-label>
-          <input matInput [ngxTimepicker]="EndTime" >
-          <ngx-material-timepicker #EndTime></ngx-material-timepicker>
-        </mat-form-field>
-      </div>
-
-      <mat-form-field class="location">
-        <mat-label>Location</mat-label>
-        <input matInput placeholder="estm meknes route agourai ">
+    <div style="display: flex;">
+      
+    <!--date de debut-->
+    <mat-form-field class="date" appearance="fill">
+        <mat-label>Date de début</mat-label>
+        <input matInput [matDatepicker]="startDate" placeholder="mm/dd/yyyy" required>
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
       </mat-form-field>
-      
-      
 
+    <!--temps de debut-->
+      <mat-form-field class="time" appearance="fill">
+        <mat-label>Temps de début</mat-label>
+        <input matInput [ngxTimepicker]="Starttime" placeholder="hh:mm [AM/PM]">
+        <ngx-material-timepicker #Starttime></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
 
-    </mat-card-content>
-</mat-card>
+    <div style="display: flex;">
+      
+    <!--date de fin-->
+    <mat-form-field class="date" appearance="fill">
+      <mat-label>Date de fin</mat-label>
+      <input matInput [matDatepicker]="EndDate" placeholder="mm/dd/yyyy" required>
+      <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
+      <mat-datepicker #EndDate></mat-datepicker>
+    </mat-form-field>
+    <!--temps de fin-->
+    <mat-form-field class="time" appearance="fill">
+      <mat-label>Temps de fin</mat-label>
+      <input matInput [ngxTimepicker]="EndTime" placeholder="hh:mm [AM/PM]">
+      <ngx-material-timepicker #EndTime></ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="location" appearance="fill">
+    <mat-label>Location</mat-label>
+    <input matInput placeholder="estm meknes route agourai ">
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill" class="participant">
+    <mat-label>Les participants</mat-label>
+    <textarea matInput rows="4"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close class="button is-rounded">Annuler</button>
+  <button mat-button class="button is-success is-rounded">Créer la réunion</button>
+</mat-dialog-actions>

@@ -56,7 +56,8 @@ import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
 import { registerLocaleData } from '@angular/common';
 import { AddEventsComponent } from './event-card/add-events/add-events.component';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { AddEventsComponent } from './event-card/add-events/add-events.component
     EventsComponent,
     AddEventsComponent
   ],
+  entryComponents : [AddEventsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -122,7 +124,9 @@ import { AddEventsComponent } from './event-card/add-events/add-events.component
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxMaterialTimepickerModule.setLocale('fr-FR')
+    NgxMaterialTimepickerModule.setLocale('fr-FR'),
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,15 +1,19 @@
-.mat-card {
-    width : 60%;
-    margin: 10% auto;
+.mat-form-field {
+    margin-top: 20px;
+    margin-left: 10px;
 }
-
-.titre {
-    width : 100%;
+.mat-dialog-actions {
+    height: 100px;
+}
+.titre ,.objet,.participant,.location {
+    
+    width : 95%;
     margin-left: 10px;
 }
 
-.date , .time ,.location{
-    width : 100%;
+.date , .time  {
+    width : 45%;
     margin-left: 10px;
 }
+
 

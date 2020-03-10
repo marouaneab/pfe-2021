@@ -15,7 +15,8 @@
                 {{msg.from}}
               </button>
               <div *ngIf="! msg.read"
-                   style="display: inline-block; width: 10px; height: 10px; border-radius: 100%; margin-left: 6px" class="accent">
+                   style="display: inline-block; width: 10px; height: 10px; border-radius: 100%; margin-left: 6px"
+                   class="accent">
               </div>
             </div>
             <mat-divider *ngIf="! last"></mat-divider>
@@ -27,8 +28,10 @@
       <div class="card" style="background-color:#fff; height: 100%">
         <div class="card-content is-paddingless">
           <app-message *ngIf="selectedMsg; else noMsgSelected">
-            <span class="msg-from">{{selectedMsg.from}}</span>
-            <span class="msg-content">{{selectedMsg.content}}</span>
+            <span class="msg-from" [innerHTML]="selectedMsg.from"></span>
+            <span class="msg-content" [innerHTML]="selectedMsg.content"></span>
+            <span *ngIf="selectedMsg.about" class="msg-about"
+                  [innerHTML]="'<p><b>About: </b>' + selectedMsg.about + '</p><hr>'"></span>
           </app-message>
         </div>
       </div>

@@ -1,13 +1,13 @@
 <div class="container">
-<mat-card class="is-mobile is-desktop card-header">
-             <mat-card-header class="card-title">
-                  <mat-card-title>Les réunions</mat-card-title>
+<mat-card class="is-mobile is-desktop">
+             <mat-card-header class="card-header">
+                  <mat-card-title class="card-title">Les réunions</mat-card-title>
                 </mat-card-header>
     <mat-card-content>
         <mat-form-field appearance="outline" >
             <mat-label>Filtrer par date</mat-label>
             <input matInput [matDatepicker]="date">
-            <mat-datepicker-toggle matSuffix [for]="date" (click)="french()"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matSuffix [for]="date" ><!--(click)="french()"--></mat-datepicker-toggle>
             <mat-datepicker #date></mat-datepicker>
           </mat-form-field>
         <mat-form-field appearance="outline">
@@ -27,23 +27,36 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-    <div class="control">
-      <button mat-icon-button [matMenuTriggerFor]="import" style="position: absolute;">
-        <mat-icon>import_export</mat-icon>
-      </button>
-      <mat-menu #import style="width: 60px;height: 50px;">
-        <button mat-menu-item>
-          <mat-icon>attach_file</mat-icon>
-          <span>Attachez un fichier</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>cloud_download</mat-icon>
-          <span>Exporter</span>
-        </button>
-      </mat-menu>
-    </div>
-    </mat-card-content>
 
+<mat-card-actions class="is-mobile is-desktop">
+  <div class="field is-grouped">
+      <p class="control">
+      <button class="button text-icon is-primary is-rounded" (click)="addEvent()">
+        <mat-icon>add</mat-icon>
+       <span> Ajouter une réunion</span>
+       </button>
+      </p>
+      <p class="control">
+    <button mat-icon-button [matMenuTriggerFor]="import">
+      <mat-icon>import_export</mat-icon>
+    </button>
+  </p>
+    <mat-menu #import >
+      <button mat-menu-item>
+        <mat-icon>attach_file</mat-icon>
+        <span>Attachez un fichier</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>cloud_download</mat-icon>
+        <span>Exporter</span>
+      </button>
+    </mat-menu>
+  </div>
+  
+</mat-card-actions>
+
+    </mat-card-content>
+    
   <div class="card-content is-paddingless table is-desktop is-mobile" style="overflow: auto !important;">
     <table mat-table [dataSource]="dataSource" class="table">
       <!-- id Column -->
