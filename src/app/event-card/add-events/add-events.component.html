@@ -1,7 +1,7 @@
 
 <h1 mat-dialog-title>Ajouter une réunion</h1>
 <mat-divider></mat-divider>
-<mat-dialog-content >
+<mat-dialog-content class="is-mobile is-desktop">
     
       <!--Titre-->
       <mat-form-field class="titre" appearance="fill"> 
@@ -15,7 +15,7 @@
       <input matInput placeholder="objet de réunion " required/>        
   </mat-form-field>
 
-    <div style="display: flex;">
+    <div class="dateTime">
       
     <!--date de debut-->
     <mat-form-field class="date" appearance="fill">
@@ -25,29 +25,30 @@
         <mat-datepicker #startDate></mat-datepicker>
       </mat-form-field>
 
-    <!--temps de debut-->
-      <mat-form-field class="time" appearance="fill">
-        <mat-label>Temps de début</mat-label>
-        <input matInput [ngxTimepicker]="Starttime" placeholder="hh:mm [AM/PM]">
-        <ngx-material-timepicker #Starttime></ngx-material-timepicker>
-      </mat-form-field>
-    </div>
-
-    <div style="display: flex;">
-      
     <!--date de fin-->
+        
     <mat-form-field class="date" appearance="fill">
       <mat-label>Date de fin</mat-label>
       <input matInput [matDatepicker]="EndDate" placeholder="mm/dd/yyyy" required>
       <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
       <mat-datepicker #EndDate></mat-datepicker>
     </mat-form-field>
+        </div>
+        
+
+    <div class="dateTime" >
+      
+    <!--temps de début-->
+    
+    <mat-timepicker class="time" [min]="minValue" [max]="maxValue" mode="24h"
+    withFormField="true" [withIcon]="true" placeholder="Temps de début">
+      </mat-timepicker>
     <!--temps de fin-->
-    <mat-form-field class="time" appearance="fill">
-      <mat-label>Temps de fin</mat-label>
-      <input matInput [ngxTimepicker]="EndTime" placeholder="hh:mm [AM/PM]">
-      <ngx-material-timepicker #EndTime></ngx-material-timepicker>
-    </mat-form-field>
+
+      <mat-timepicker class="time" [min]="minValue" [max]="maxValue" mode="24h"
+     withFormField="true" placeholder="Temps de fin" [withIcon]="true">
+      </mat-timepicker>
+
   </div>
 
   <mat-form-field class="location" appearance="fill">
