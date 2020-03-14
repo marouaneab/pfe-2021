@@ -6,7 +6,6 @@ import {MailBoxComponent} from './mail-box/mail-box.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
 
-
 const routes: Routes = [
   {path : 'login',component : LoginComponent},
   {
@@ -24,7 +23,8 @@ const routes: Routes = [
       {
         path : 'events',
         component : EventsComponent
-      }
+      },
+      
     ]
   },
   {

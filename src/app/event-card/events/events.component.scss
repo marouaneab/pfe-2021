@@ -2,21 +2,21 @@
     margin-right: 20px;
     margin-top: 20px;
   }
-.control {
-     float : right;
-     margin-top: 23px;
-     margin-right: 30px;
+
+.mat-card-actions {
+  margin-top: 20px;
+  float: right;
 }
-.mat-button {
-    width : 50px;
-    height: 50px;
-}
+
+
 table {
   width: 100%;
 }
+
 .mat-cell , .mat-header-cell{
   padding: 1rem 1rem 1rem 1rem;
 }
+
 .mat-header-cell {
   background-color: skyblue;
   color: black;

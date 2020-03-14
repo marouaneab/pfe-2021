@@ -1,6 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -52,10 +54,9 @@ import {MessageComponent} from './mail-box/message/message.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
-import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
+import { AddEventsComponent } from './event-card/add-events/add-events.component';
+import { MatTimepickerModule } from 'mat-timepicker';
 
-registerLocaleData(localeFr, 'fr-FR');
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,8 +70,10 @@ registerLocaleData(localeFr, 'fr-FR');
     MessageComponent,
     EventCardComponent,
     LoginComponent,
-    EventsComponent
+    EventsComponent,
+    AddEventsComponent
   ],
+  entryComponents : [AddEventsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -119,7 +122,8 @@ registerLocaleData(localeFr, 'fr-FR');
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,6 +5,8 @@ import {MAT_MOMENT_DATE_FORMATS,MomentDateAdapter,MAT_MOMENT_DATE_ADAPTER_OPTION
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
+import { AddEventsComponent } from '../add-events/add-events.component';
 
 interface Filter {
   value : string;
@@ -76,8 +78,8 @@ export class EventsComponent implements OnInit {
  }
 ]
 
-
-  constructor(private _adapter: DateAdapter<any>) { }
+// constructor(private _adapter: DateAdapter<any>)
+  constructor(public dialog : MatDialog) { }
   
   displayedColumns: string[] = ['id', 'titre', 'location', 'objet', 'status', 'start', 'end','edit'];
   dataSource = new MatTableDataSource<Meeting>(MEET_DATA);
@@ -86,7 +88,10 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
   }
-  french() {
-    this._adapter.setLocale('fr');
-  }
+  // french() {
+  //   this._adapter.setLocale('fr');
+  // }
+  addEvent() {
+    this.dialog.open(AddEventsComponent);
+}
 }
