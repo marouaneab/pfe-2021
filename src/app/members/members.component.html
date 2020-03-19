@@ -1,0 +1,45 @@
+<section>
+  <div class="columns is-marginless section is-gapless">
+    <div class="column">
+      <div class="columns">
+        <div class="column">
+          <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label>Recherche</mat-label>
+            <input matInput placeholder="Rechercher un membre">
+            <div matSuffix>
+              <mat-icon>search</mat-icon>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+      <article class="type1 card">
+        <header class="card-header">
+          <div class="card-header-title">Type 1</div>
+        </header>
+        <div class="card-content columns" style="flex-wrap: wrap">
+          <app-member class="column" *ngFor="let i of arr">
+            <img class="image" src="https://www.w3schools.com/howto/img_avatar.png">
+            <div class="name">
+              <div>Nom</div>
+              <div>Prénom</div>
+            </div>
+          </app-member>
+        </div>
+      </article>
+      <article class="type2 card">
+        <header class="card-header">
+          <div class="card-header-title">Type 2</div>
+        </header>
+        <div class="card-content columns" style="flex-wrap: wrap">
+          <app-member class="column" *ngFor="let i of arr">
+            <img class="image" src="https://www.w3schools.com/howto/img_avatar.png">
+            <div class="name">
+              <div>Nom</div>
+              <div>Prénom</div>
+            </div>
+          </app-member>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

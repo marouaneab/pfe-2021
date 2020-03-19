@@ -6,7 +6,13 @@
       <span>Dashboard</span>
     </mat-toolbar>
     <mat-nav-list style="align-content: stretch;">
-      <a class="padding" mat-list-item>
+      <a mat-list-item routerLink="/dashboard" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+              <span class="text-icon">
+                <mat-icon>event</mat-icon>
+                <span>Calendrier</span>
+              </span>
+      </a>
+      <a class="padding" mat-list-item routerLink="./member" routerLinkActive="active">
         <span class="text-icon">
           <mat-icon>account_circle</mat-icon>
           <span>
@@ -15,37 +21,12 @@
         </span>
       </a>
       <mat-divider></mat-divider>
-      <div>
-        <collapse>
-          <collapse-title>
-            <span class="text-icon" style="margin-left: 6px;">
-              <img src="https://img.icons8.com/ios-filled/50/000000/meeting-room.png" class="image is-32x32 is-rounded">
-              &nbsp;
-              <span>Réunions</span>
-            </span>
-          </collapse-title>
-          <collapse-content>
-            <a mat-list-item>
-              <span class="text-icon">
-                <mat-icon>note_add</mat-icon>
-                <span>Ajouter une réunion</span>
-              </span>
-            </a>
-            <a mat-list-item routerLink="./events" routerLinkActive="active">
-              <span class="text-icon">
-                <mat-icon>view_list</mat-icon>
-                <span>Listes des réunions</span>
-              </span>
-            </a>
-            <a mat-list-item>
-              <span class="text-icon">
-                <mat-icon>event</mat-icon>
-                <span>Calendrier</span>
-              </span>
-            </a>
-          </collapse-content>
-        </collapse>
-      </div>
+      <a class="padding" mat-list-item routerLink="./events" routerLinkActive="active">
+        <span class="text-icon">
+          <mat-icon>group</mat-icon>
+          <span>Réunions</span>
+        </span>
+      </a>
       <mat-divider></mat-divider>
       <div>
         <collapse>
@@ -123,7 +104,6 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <!-- Add Content Here -->
-
     <main>
       <router-outlet></router-outlet>
     </main>

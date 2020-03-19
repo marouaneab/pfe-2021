@@ -5,9 +5,10 @@ import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {MailBoxComponent} from './mail-box/mail-box.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
+import {MembersComponent} from './members/members.component';
 
 const routes: Routes = [
-  {path : 'login',component : LoginComponent},
+  {path : 'login', component : LoginComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -24,7 +25,10 @@ const routes: Routes = [
         path : 'events',
         component : EventsComponent
       },
-      
+      {
+        path: 'member',
+        component: MembersComponent
+      }
     ]
   },
   {

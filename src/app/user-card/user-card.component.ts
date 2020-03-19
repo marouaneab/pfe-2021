@@ -11,8 +11,8 @@ export interface Users {
   email: string;
   address: string;
   role: string;
-  department : string;
-  section ?:  string;
+  department: string;
+  section ?: string;
 }
 
 const USER_DATA: Users[] = [
@@ -227,7 +227,7 @@ const USER_DATA: Users[] = [
 
 export class UserCardComponent implements OnInit {
 
-  displayedColumns: string[] = ['Uid', 'photo', 'nom', 'prenom', 'email', 'address', 'role','department'];
+  displayedColumns: string[] = ['Uid', 'photo', 'nom', 'prenom', 'email', 'address', 'role', 'department'];
   dataSource = new MatTableDataSource<Users>(USER_DATA);
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 

@@ -23,7 +23,9 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 @include angular-material-theme($candy-app-theme);
 /*********************************/
-
+html {
+  overflow: auto !important;
+}
 html, body {
   height: 100%;
 }

@@ -1,8 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -56,6 +54,8 @@ import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
 import { AddEventsComponent } from './event-card/add-events/add-events.component';
 import { MatTimepickerModule } from 'mat-timepicker';
+import { MembersComponent } from './members/members.component';
+import { MemberComponent } from './members/member/member.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,9 @@ import { MatTimepickerModule } from 'mat-timepicker';
     EventCardComponent,
     LoginComponent,
     EventsComponent,
-    AddEventsComponent
+    AddEventsComponent,
+    MembersComponent,
+    MemberComponent
   ],
   entryComponents : [AddEventsComponent],
   imports: [
