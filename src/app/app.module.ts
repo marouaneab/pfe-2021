@@ -56,6 +56,7 @@ import { AddEventsComponent } from './event-card/add-events/add-events.component
 import { MatTimepickerModule } from 'mat-timepicker';
 import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './members/member/member.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MemberComponent } from './members/member/member.component';
     EventsComponent,
     AddEventsComponent,
     MembersComponent,
-    MemberComponent
+    MemberComponent,
+    FilterPipe
   ],
   entryComponents : [AddEventsComponent],
   imports: [

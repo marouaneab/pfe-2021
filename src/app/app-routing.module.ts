@@ -8,7 +8,10 @@ import { EventsComponent } from './event-card/events/events.component';
 import {MembersComponent} from './members/members.component';
 
 const routes: Routes = [
-  {path : 'login', component : LoginComponent},
+  {
+    path : 'login',
+    component : LoginComponent
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -33,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   }
 ];

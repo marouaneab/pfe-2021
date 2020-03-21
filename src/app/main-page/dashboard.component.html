@@ -63,7 +63,7 @@
         </button>
         <div class="search-bar">
           <mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
-            <mat-label>Search</mat-label>
+            <mat-label>Recherche</mat-label>
             <input type="search" matInput [(ngModel)]="value">
             <div matSuffix class="is-flex">
               <button *ngIf="value" (click)="value = ''" title="clear" @showHide

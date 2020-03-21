@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Classification, Member, Role} from '../interfaces/Member';
 
 @Component({
   selector: 'app-users',
@@ -6,11 +7,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./members.component.scss']
 })
 export class MembersComponent implements OnInit {
-  arr = new Array(10);
+  arr: Member[] = [];
+  searchWord = '';
+  Loi = Classification.Loi;
+  Elu = Classification.Elu;
+  Design = Classification.Design;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
+    this.arr = [];
+    const classification = [
+      Classification.Design,
+      Classification.Elu,
+      Classification.Loi
+    ];
+    const names = [
+      'Marouane', 'Mounir', 'Mohammed', 'Said', 'Oussama', 'Billal', 'Soufiane', 'Rabie'
+    ];
 
+    for (let i = 0; i < 20; i++) {
+      this.arr.push({
+        id: i,
+        classification: classification[Math.floor(Math.random() * 3)],
+        lastName: 'Nom',
+        firstName: names[Math.floor(Math.random() * 8)],
+        mail: '',
+        role: Role.Membre
+      });
+    }
+  }
 }
