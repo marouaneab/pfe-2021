@@ -60,10 +60,10 @@ const MEMBER_DATA : Members[] = [
 export class CMSMembersComponent implements OnInit {
 
   dataSource = new MatTableDataSource<Members>(MEMBER_DATA);
-  
+
   displayedColumns: string[] = ['id', 'photo', 'nom', 'prenom','email','adresse','role','grade','department','edit'];
   
-  members : Members[];
+  member : Members[];
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -85,13 +85,11 @@ export class CMSMembersComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  deleteMember (member : Members ){
+  deleteMember (mbr : Members){
      
   }
 
-  EditMember (member : Members) {
-    localStorage.removeItem('EditMemberId');
-    localStorage.setItem('EditMemberId',member.id.toString());
+  EditMember (mbr : Members) {
     this.router.navigate(['edit-member']);
   }
 
