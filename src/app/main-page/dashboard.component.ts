@@ -8,6 +8,10 @@ interface Menu {
   title: string;
   children?: Menu[];
 }
+export interface type {
+  name: string;
+  link : string;
+}
 
 @Component({
   selector: 'dashboard',
@@ -23,6 +27,8 @@ interface Menu {
 })
 export class DashboardComponent {
   value = '';
+  
+  panelOpenState = false;
   MenuData: Menu[] = [
     {
       title: 'Membres',
@@ -56,6 +62,24 @@ export class DashboardComponent {
         {title: 'Envoyé(s)'},
         {title: 'Reçu(s)'}
       ]
+    }
+  ];
+  Commission: type[] = [
+    {
+      name: 'Pédagogique',
+      link : './commission-pedagogique'
+    },
+    {
+      name: 'La recherche scientifique',
+      link : './commission-de-la-recheche-scientfique'
+    },
+    {
+      name: 'Suivi de budget',
+      link : './commission-suivi-de-budget'
+    },
+    {
+      name : 'Sportives et culturelles',
+      link : './commission-sportives-et-culturelles'
     }
   ];
 

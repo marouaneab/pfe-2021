@@ -78,8 +78,7 @@ export class EventsComponent implements OnInit {
  }
 ]
 
-// constructor(private _adapter: DateAdapter<any>)
-  constructor(public dialog : MatDialog) { }
+  constructor(private _adapter: DateAdapter<any>,public dialog : MatDialog) { }
   
   displayedColumns: string[] = ['id', 'titre', 'location', 'objet', 'status', 'start', 'end','edit'];
   dataSource = new MatTableDataSource<Meeting>(MEET_DATA);
@@ -88,10 +87,13 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
   }
-  // french() {
-  //   this._adapter.setLocale('fr');
-  // }
+
+  french() {
+     this._adapter.setLocale('fr');
+   }
+
   addEvent() {
     this.dialog.open(AddEventsComponent);
 }
+
 }

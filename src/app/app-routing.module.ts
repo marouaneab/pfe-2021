@@ -6,12 +6,13 @@ import {MailBoxComponent} from './mail-box/mail-box.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './event-card/events/events.component';
 import {MembersComponent} from './members/members.component';
+import { BudgetComponent } from './commission-card/permanent-commission/budget/budget.component';
+import { PedagogiqueComponent } from './commission-card/permanent-commission/pedagogique/pedagogique.component';
+import { RechercheComponent } from './commission-card/permanent-commission/recherche/recherche.component';
+import { SportCultureComponent } from './commission-card/permanent-commission/sport-culture/sport-culture.component';
 
 const routes: Routes = [
-  {
-    path : 'login',
-    component : LoginComponent
-  },
+  {path : 'login', component : LoginComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -31,12 +32,29 @@ const routes: Routes = [
       {
         path: 'member',
         component: MembersComponent
+      },
+      {
+        path : 'commission-suivi-de-budget',
+        component : BudgetComponent
+      },
+      {
+        path : 'commission-pedagogique',
+        component : PedagogiqueComponent
+      },
+      {
+        path : 'commission-de-la-recheche-scientfique',
+        component : RechercheComponent
+      },
+      {
+        path : 'commission-sportives-et-culturelles',
+        component : SportCultureComponent
       }
+      
     ]
   },
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }
 ];

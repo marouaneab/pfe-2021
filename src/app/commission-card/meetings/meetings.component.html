@@ -1,0 +1,41 @@
+<section class="section">
+    <div style="border-bottom: 1px solid #ccc;">
+        <p class="title">Meetings</p>
+    </div>
+</section>
+<section class="section">
+    <div class="columns is-multiline is-variable is-mobile is-desktop">
+        <div class="column" *ngFor="let item of meetings">
+            <mat-card class="card">
+                <mat-card-header class="card-header">
+                    <mat-card-title>{{item.status}}</mat-card-title>
+                    <mat-card-subtitle>
+                        <p class="control" class="is-inline-block">
+                            <span class="text-icon"><mat-icon>access_time</mat-icon><time>{{item.Start_time | date:'MMM d, y, h:mm a'}}</time>
+                            <span>-</span><time>{{item.End_Time | date:'shortTime'}}</time>
+                            </span>
+                        </p>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="card-content" style="flex-wrap: wrap">
+                    <div class="content">
+                        <p style="font-weight: normal;">{{item.description}}</p>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item">
+
+                        <span class="text-icon"><mat-icon>details</mat-icon>Détails</span></a>
+
+                    <a class="card-footer-item">
+
+                        <span class="text-icon"><mat-icon>edit</mat-icon>Editer</span>
+                    </a>
+                    <a class="card-footer-item">
+
+                        <span class="text-icon"><mat-icon>delete</mat-icon>Supprimer</span></a>
+                </footer>
+            </mat-card>
+        </div>
+    </div>
+</section>

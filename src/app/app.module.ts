@@ -57,6 +57,16 @@ import { MatTimepickerModule } from 'mat-timepicker';
 import { MembersComponent } from './members/members.component';
 import { MemberComponent } from './members/member/member.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PedagogiqueComponent } from './commission-card/permanent-commission/pedagogique/pedagogique.component';
+import { BudgetComponent } from './commission-card/permanent-commission/budget/budget.component';
+import { RechercheComponent } from './commission-card/permanent-commission/recherche/recherche.component';
+import { SportCultureComponent } from './commission-card/permanent-commission/sport-culture/sport-culture.component';
+import { MeetingsComponent } from './commission-card/meetings/meetings.component';
+import { CMSMembersComponent } from './commission-card/cms-members/cms-members.component';
+import { AddMemberComponent } from './commission-card/cms-members/add-member/add-member.component';
+import { EditMemberComponent } from './commission-card/cms-members/edit-member/edit-member.component';
+import { EditMeetingComponent } from './commission-card/meetings/edit-meeting/edit-meeting.component';
+import { AddMeetingComponent } from './commission-card/meetings/add-meeting/add-meeting.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +85,18 @@ import { FilterPipe } from './pipes/filter.pipe';
     AddEventsComponent,
     MembersComponent,
     MemberComponent,
-    FilterPipe
+    FilterPipe,
+    PedagogiqueComponent,
+    BudgetComponent,
+    RechercheComponent,
+    SportCultureComponent,
+    MeetingsComponent,
+    CMSMembersComponent,
+    AddMemberComponent,
+    EditMemberComponent,
+    EditMeetingComponent,
+    AddMeetingComponent
+
   ],
   entryComponents : [AddEventsComponent],
   imports: [
