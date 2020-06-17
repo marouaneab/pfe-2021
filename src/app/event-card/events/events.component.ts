@@ -5,8 +5,8 @@ import {MAT_MOMENT_DATE_FORMATS,MomentDateAdapter,MAT_MOMENT_DATE_ADAPTER_OPTION
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
 import { AddEventsComponent } from '../add-events/add-events.component';
+import {MatDialog , MatDialogConfig } from '@angular/material/dialog';
 
 interface Filter {
   value : string;
@@ -93,7 +93,11 @@ export class EventsComponent implements OnInit {
    }
 
   addEvent() {
-    this.dialog.open(AddEventsComponent);
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "80%";
+    this.dialog.open(AddEventsComponent,dialogConfig);
 }
 
 }

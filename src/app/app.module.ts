@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,7 +15,7 @@ import {
 } from '@angular/material';
 import {DashboardComponent} from './main-page/dashboard.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {CollapseComponent} from './tools/collapse/collapse.component';
@@ -64,9 +63,12 @@ import { SportCultureComponent } from './commission-card/permanent-commission/sp
 import { MeetingsComponent } from './commission-card/meetings/meetings.component';
 import { CMSMembersComponent } from './commission-card/cms-members/cms-members.component';
 import { AddMemberComponent } from './commission-card/cms-members/add-member/add-member.component';
-import { EditMemberComponent } from './commission-card/cms-members/edit-member/edit-member.component';
 import { EditMeetingComponent } from './commission-card/meetings/edit-meeting/edit-meeting.component';
 import { AddMeetingComponent } from './commission-card/meetings/add-meeting/add-meeting.component';
+import { MemberService } from './services/member.service';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -93,12 +95,10 @@ import { AddMeetingComponent } from './commission-card/meetings/add-meeting/add-
     MeetingsComponent,
     CMSMembersComponent,
     AddMemberComponent,
-    EditMemberComponent,
     EditMeetingComponent,
-    AddMeetingComponent
-
+    AddMeetingComponent,
+    MatConfirmDialogComponent
   ],
-  entryComponents : [AddEventsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -148,11 +148,15 @@ import { AddMeetingComponent } from './commission-card/meetings/add-meeting/add-
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [MemberService],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  entryComponents : [AddEventsComponent,AddMemberComponent,MatConfirmDialogComponent],
 })
 export class AppModule {
 }

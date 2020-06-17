@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');
 @import "assets/bulma/sass/utilities/all";
 @import "assets/bulma/sass/base/helpers";
@@ -6,133 +7,272 @@
 @import "assets/bulma/sass/elements/title";
 @import "assets/bulma/sass/elements/image";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
-$card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+$card-shadow: 0 3px 6px rgba(0,
+0,
+0,
+0.16),
+0 3px 6px rgba(0,
+0,
+0,
+0.23);
 @import "assets/bulma/sass/components/card";
 @import "assets/bulma/sass/layout/section";
 
 /*********** Config My Theme for Angular Material Components ************/
-@import '~@angular/material/theming';
-/*********** Config Primary/Accent Color for Site ************/
-$primary: map_get($mat-indigo, A400);
-$accent: map_get($mat-pink, A400);
 
-$candy-app-primary: mat-palette($mat-indigo, A200, A100, A400);
-$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+@import '~@angular/material/theming';
+
+/*********** Config Primary/Accent Color for Site ************/
+
+$primary: map_get($mat-indigo,
+A400);
+$accent: map_get($mat-pink,
+A400);
+$candy-app-primary: mat-palette($mat-indigo,
+A200,
+A100,
+A400);
+$candy-app-accent: mat-palette($mat-pink,
+A200,
+A100,
+A400);
 $candy-app-warn: mat-palette($mat-red);
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$candy-app-theme: mat-light-theme($candy-app-primary,
+$candy-app-accent,
+$candy-app-warn);
 @include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 @include angular-material-theme($candy-app-theme);
+
 /*********************************/
+
 html {
-  overflow: auto !important;
+    overflow: auto !important;
 }
-html, body {
-  height: 100%;
+
+html,
+body {
+    height: 100%;
 }
 
 *:not(mat-icon) {
-  margin: 0;
-  font-family: Montserrat, sans-serif !important;
+    margin: 0;
+    font-family: Montserrat, sans-serif !important;
 }
 
 mat-icon {
-  font-size: 24px !important
+    font-size: 24px !important
 }
 
 .padding {
-  padding: .5rem 1rem;
+    padding: .5rem 1rem;
 }
 
 mat-toolbar-row {
-  height: auto !important;
-  font-size: 16px;
-
-  &, & > div {
-    @extend .padding;
-  }
+    height: auto !important;
+    font-size: 16px;
+    &,
+    &>div {
+        @extend .padding;
+    }
 }
 
 button {
-  text-transform: uppercase;
-
-  &.no-up {
-    text-transform: none;
-  }
+    text-transform: uppercase;
+    &.no-up {
+        text-transform: none;
+    }
 }
 
 .actions {
-  display: flex;
-  flex-wrap: nowrap;
-
-  button {
-    &:not(:first-child) {
-      margin-left: 14px !important;
+    display: flex;
+    flex-wrap: nowrap;
+    button {
+        &:not(:first-child) {
+            margin-left: 14px !important;
+        }
+        &:not(:last-child) {
+            margin-right: 14px !important;
+        }
     }
-
-    &:not(:last-child) {
-      margin-right: 14px !important;
-    }
-  }
 }
 
 .pulse {
-  border-radius: 100%;
-  background-color: rgba(200, 200, 200, 0.3);
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
-  animation: pulse 2s infinite;
-
-  &:hover {
-    animation: none;
-  }
+    border-radius: 100%;
+    background-color: rgba(200, 200, 200, 0.3);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+    animation: pulse 2s infinite;
+    &:hover {
+        animation: none;
+    }
 }
 
-@mixin animation($name, $radius: 15px) {
-  @keyframes #{$name} {
-    0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+@mixin animation($name,
+$radius: 15px) {
+    @keyframes #{$name} {
+        0% {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+        }
+        100% {
+            box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);
+        }
     }
-    100% {
-      box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);
-    }
-  }
 }
 
 @include animation(pulse);
-
 section:not(:first-of-type) {
-  margin-top: -3rem !important;
+    margin-top: -3rem !important;
 }
 
 .btnGroupH {
-  &:not(:first-child) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  &:not(:last-child) {
-    border-bottom: 1px solid #a6a6a6;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
+    &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    &:not(:last-child) {
+        border-bottom: 1px solid #a6a6a6;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
 
 .accent {
-  background-color: map-get($candy-app-accent, default);
-  color: white;
+    background-color: map-get($candy-app-accent, default);
+    color: white;
 }
+
 .primary {
-  background-color: map-get($candy-app-primary, default);
-  color: white;
+    background-color: map-get($candy-app-primary, default);
+    color: white;
 }
-span, div {
-  &.text-icon {
-    display: inline-flex;
-    align-items: center;
-    mat-icon {
-      margin: 0 6px;
+
+span,
+div {
+    &.text-icon {
+        display: inline-flex;
+        align-items: center;
+        mat-icon {
+            margin: 0 6px;
+        }
     }
-  }
 }
 
 .mat-form-field-outline-gap {
-  width: 75px !important;
+    width: 75px !important;
+}
+
+form.normal-form {
+    margin: 20px;
+}
+
+.controls-container {
+    width: 100%;
+    padding: 5%;
+    margin: 10px;
+}
+
+.controls-container>* {
+    width: 100%;
+}
+
+.buttons button {
+    margin: 5px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+/*notification */
+
+snack-bar-container.success {
+    background-color: #5cb85c;
+    color: white;
+}
+
+snack-bar-container.notification simple-snack-bar {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+mat-footer-row mat-footer-cell {
+    justify-content: center;
+    font-style: italic;
+}
+
+.search-div {
+    margin: 10px;
+}
+
+.search-form-field {
+    width: 60%;
+    margin-left: 10px;
+    padding: 5px 10px !important;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+    display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+    border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+    height: 32px;
+    width: 32px;
+}
+
+//dialog box
+.confirm-dialog-container .mat-dialog-container {
+    border-radius: .25em .25em .4em .4em;
+    padding: 0px;
+}
+
+.confirm-dialog-container .content {
+    margin: 5px 5px 15px 5px;
+    color: #8f9cb5;
+    display: flex;
+}
+
+.confirm-dialog-container #close-icon {
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+
+.confirm-dialog-container #close-icon:hover {
+    cursor: pointer;
+}
+
+.confirm-dialog-container #noBtn {
+    height: 50px;
+    width: 50%;
+    background-color: #fc7169;
+    color: white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-container #yesBtn {
+    height: 50px;
+    width: 50%;
+    background-color: #b6bece;
+    color: white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-container span.content-span {
+    padding: 35px 16px;
+    text-align: center;
+    font-size: 20px;
 }

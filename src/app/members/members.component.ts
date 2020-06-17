@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Classification, Member, Role} from '../interfaces/Member';
+import {Classification, Member, Grade} from '../interfaces/Member';
 
 @Component({
   selector: 'app-users',
@@ -30,10 +30,10 @@ export class MembersComponent implements OnInit {
       this.arr.push({
         id: i,
         classification: classification[Math.floor(Math.random() * 3)],
-        lastName: 'Nom',
-        firstName: names[Math.floor(Math.random() * 8)],
+        nom: 'Nom',
+        prenom: names[Math.floor(Math.random() * 8)],
         mail: '',
-        role: Role.Membre
+        grade: Grade.Membre
       });
     }
   }

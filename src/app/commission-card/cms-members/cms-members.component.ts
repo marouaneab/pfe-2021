@@ -1,99 +1,68 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import { Router } from '@angular/router';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { MemberService } from 'src/app/services/member.service';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { AddMemberComponent } from '../cms-members/add-member/add-member.component';
+import {MatDialog , MatDialogConfig } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/services/notification.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
-export interface Members {
-  id: number;
-  photo?: string;
-  nom: string;
-  prenom: string;
-  email: string;
-  adresse: string;
-  role: string;
-  grade : string;
-  department: string;
-}
-
-const MEMBER_DATA : Members[] = [
-  {
-    id: 1,
-    photo: '',
-    nom: 'chi wahd',
-    prenom: 'lhaj',
-    email: 'chiWahd.lhaj@gmail.com',
-    adresse: 'Taiwan',
-    role: 'Etudiant',
-    grade : 'Supérior',
-    department : 'xxxx'
-  },
-  {
-    id: 2,
-    photo: '',
-    nom: 'Mrani',
-    prenom: 'Nabil',
-    email: 'Nmrani@gmail.com',
-    adresse: 'Hmria',
-    role: 'Professeur',
-    grade : 'Supérior',
-    department : 'Informatique'
-  },
-  {
-    id: 3,
-    photo: '',
-    nom: 'Bennasr',
-    prenom: 'Mohammed',
-    email: 'mohammed.bennasr@gmail.com',
-    adresse: 'Rabat',
-    role: 'Directeur',
-    grade : 'Supérior',
-    department : 'Informatique'
-  }
-];
 
 @Component({
   selector: 'cms-members',
   templateUrl: './cms-members.component.html',
   styleUrls: ['./cms-members.component.scss']
 })
+
 export class CMSMembersComponent implements OnInit {
 
-  dataSource = new MatTableDataSource<Members>(MEMBER_DATA);
+  constructor(public service : MemberService ,public dialog : MatDialog,
+    public notificationService : NotificationService,
+    public dialogService : DialogService) {} 
 
-  displayedColumns: string[] = ['id', 'photo', 'nom', 'prenom','email','adresse','role','grade','department','edit'];
-  
-  member : Members[];
-  
+   listData : MatTableDataSource<any>;
+  displayedColumns : string [] = ["nom","prenom","mail","adresse","department","grade","actions"];
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort) sort : MatSort;
+  @ViewChild(MatPaginator) paginator : MatPaginator;
+  searchKey : string;
 
-  constructor(private router :Router) { 
-    this.dataSource = new MatTableDataSource<Members>(MEMBER_DATA);
+  ngOnInit() { }
+
+  onSearchClear () {
+    this.searchKey ='';
+    this.applyFilter();
   }
 
-  ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-  deleteMember (mbr : Members){
-     
-  }
-
-  EditMember (mbr : Members) {
-    this.router.navigate(['edit-member']);
+  applyFilter () {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
   addMember() {
-      this.router.navigate(['add-member']);
+      const dialogConfig=new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "80%";
+      this.dialog.open(AddMemberComponent,dialogConfig);
   }
+
+  onEdit(row) {
+    this.service.fillForm(row);
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "80%";
+    this.dialog.open(AddMemberComponent,dialogConfig);
+  }
+
+  onDelete ($key) {
+    this.dialogService.ConfirmDialog('Voulez vous vraiment supprimer ce membre ?')
+    .afterClosed().subscribe(res => {
+      if (res) {
+      this.service.deleteMember($key);
+      this.notificationService.warn('Supprimé avec succès !');
+      } 
+    });
+
+  }
+  
 }

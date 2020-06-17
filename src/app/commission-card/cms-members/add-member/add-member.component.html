@@ -1,1 +1,71 @@
-<p>add-member works!</p>
+<mat-toolbar>
+    <span>{{service.form.controls['$key'].value?"Modifier Membre" : "Ajouter un nouveau membre"}}</span>
+    <span class="spacer"></span>
+    <button class="delete closeDialog" (click)="onClear()" tabindex="-1"></button>
+</mat-toolbar>
+
+
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controls-container">
+                <input formControlName="$key" type="hidden">
+                <mat-form-field>
+                    <input formControlName="nom" matInput placeholder="nom .." required>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="prenom" matInput placeholder="prenom .." required>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="mail" matInput placeholder="adresse mail .." required>
+                    <mat-error *ngIf="service.form.controls['mail'].errors?.required">Ce champ est obligatoire</mat-error>
+                    <mat-error *ngIf="service.form.controls['mail'].errors?.email">Adresse mail non valid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="adresse" matInput placeholder="adresse .." required>
+                    <mat-error *ngIf="service.form.controls['adresse'].errors?.required">Ce champ est obligatoire</mat-error>
+                    <mat-error *ngIf="service.form.controls['adresse'].errors?.minLength">Minimum 3 charatères</mat-error>
+                </mat-form-field>
+            </div>
+            <!-- <div class="has-text-left">
+                    <img [src]="imgSrc" width="250px" height="150px" (click)="fileUploader.click()">
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input type="file" accept="image/*" #fileUploader formControlName="imageUrl" (change)="showPreview($event)">
+                    </div>
+                    <div class="help is-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">Ce champ est obligatoire</div>
+                </div>
+            -->
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controls-container">
+                <mat-form-field>
+                    <mat-select formControlName="grade" placeholder="Grade" required>
+                        <mat-option value="">None</mat-option>
+                        <ng-container *ngFor="let grade of grades">
+                            <mat-option value="{{grade.value}}">{{grade.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select formControlName="department" placeholder="Department">
+                        <mat-option value="">None</mat-option>
+                        <ng-container *ngFor="let dep of departments">
+                            <mat-option value="{{dep.value}}">{{dep.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <div class="buttons">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">{{service.form.controls['$key'].value?"Modifier" : "Ajouter"}}</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Annuler</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

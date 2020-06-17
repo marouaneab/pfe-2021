@@ -10,9 +10,10 @@ import { BudgetComponent } from './commission-card/permanent-commission/budget/b
 import { PedagogiqueComponent } from './commission-card/permanent-commission/pedagogique/pedagogique.component';
 import { RechercheComponent } from './commission-card/permanent-commission/recherche/recherche.component';
 import { SportCultureComponent } from './commission-card/permanent-commission/sport-culture/sport-culture.component';
+import { AddMemberComponent } from './commission-card/cms-members/add-member/add-member.component';
 
 const routes: Routes = [
-  {path : 'login', component : LoginComponent},
+  {path : 'login', component : LoginComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path : 'commission-sportives-et-culturelles',
         component : SportCultureComponent
+      },
+      {
+        path : 'add-member',
+        component : AddMemberComponent
       }
       
     ]

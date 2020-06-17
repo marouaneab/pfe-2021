@@ -1,11 +1,13 @@
 export interface Member {
   id: number;
-  classification: Classification;
-  role: Role;
-  firstName: string;
-  lastName: string;
-  mail: string;
   image?: string;
+  classification ?: Classification;
+  grade: Grade;
+  nom: string;
+  prenom: string;
+  mail: string;
+  adresse ?: string;
+  department ?: Department;
 }
 
 export enum Classification {
@@ -13,8 +15,14 @@ export enum Classification {
   Design = 'membre désigné',
   Elu = 'membre elu'
 }
+export enum Department {
+  GI = 'Informatique',
+  GE = 'Eléctrique',
+  TCC = 'Techniques de Commercialistaion et de Communication',
+  TM = 'Techniques de management'
+}
 
-export enum Role {
+export enum Grade {
   Directeur = 'directeur',
   Adjoint = 'directeur adjoint',
   ChefDept = 'chef de département',

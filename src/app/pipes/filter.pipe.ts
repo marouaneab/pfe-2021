@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
     return value.filter(member => {
       return member.classification === filterBy.toLowerCase();
     }).filter(member => {
-      return searchWord === '' || member.firstName.toUpperCase().includes(searchWord) || member.lastName.toUpperCase().includes(searchWord);
+      return searchWord === '' || member.nom.toUpperCase().includes(searchWord) || member.prenom.toUpperCase().includes(searchWord);
     });
   }
 }

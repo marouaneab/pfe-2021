@@ -1,69 +1,74 @@
+<mat-toolbar>
+    <span>{{service.form.controls['$key'].value?"Modifier réunion" : "Ajouter un nouveau réunion"}}</span>
+    <span class="spacer"></span>
+    <button class="delete closeDialog" (click)="onClear()" tabindex="-1"></button>
+</mat-toolbar>
 
-<h1 mat-dialog-title>Ajouter une réunion</h1>
-<mat-divider></mat-divider>
-<mat-dialog-content class="is-mobile is-desktop">
-    
-      <!--Titre-->
-      <mat-form-field class="titre" appearance="fill"> 
-        <mat-label>Titre</mat-label>
-        <input matInput placeholder="ajouter un titre de réunion" required/>        
-    </mat-form-field>
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controls-container">
 
-      <!--objet-->
-    <mat-form-field class="objet" appearance="fill"> 
-      <mat-label>Objet</mat-label>
-      <input matInput placeholder="objet de réunion " required/>        
-  </mat-form-field>
+                <!--key-->
+                <input formControlName="$key" type="hidden">
 
-    <div class="dateTime">
-      
-    <!--date de debut-->
-    <mat-form-field class="date" appearance="fill">
-        <mat-label>Date de début</mat-label>
-        <input matInput [matDatepicker]="startDate" placeholder="mm/dd/yyyy" required>
-        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-        <mat-datepicker #startDate></mat-datepicker>
-      </mat-form-field>
+                <!--titre-->
+                <mat-form-field appearance="fill">
+                    <mat-label>Titre</mat-label>
+                    <input formControlName="Titre" matInput placeholder="Titre .." required>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                </mat-form-field>
 
-    <!--date de fin-->
-        
-    <mat-form-field class="date" appearance="fill">
-      <mat-label>Date de fin</mat-label>
-      <input matInput [matDatepicker]="EndDate" placeholder="mm/dd/yyyy" required>
-      <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
-      <mat-datepicker #EndDate></mat-datepicker>
-    </mat-form-field>
-        </div>
-        
+                <!--objet-->
+                <mat-form-field class="objet" appearance="fill">
+                    <mat-label>Objet</mat-label>
+                    <input matInput formControlName="objet" placeholder="objet de réunion " required/>
+                    <mat-error *ngIf="service.form.controls['objet'].errors?.required">Ce champ est obligatoire</mat-error>
+                    <mat-error *ngIf="service.form.controls['objet'].errors?.minLength">Minimum 3 charatères</mat-error>
+                </mat-form-field>
 
-    <div class="dateTime" >
-      
-    <!--temps de début-->
-    
-    <mat-timepicker class="time" [min]="minValue" [max]="maxValue" mode="24h"
-    withFormField="true" [withIcon]="true" placeholder="Temps de début">
-      </mat-timepicker>
-    <!--temps de fin-->
+                <!--date de debut-->
+                <mat-form-field class="date" appearance="fill">
+                    <mat-label>Date de début</mat-label>
+                    <input matInput [matDatepicker]="startDate" formControlName="Date_debut" placeholder="mm/dd/yyyy" required>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
 
-      <mat-timepicker class="time" [min]="minValue" [max]="maxValue" mode="24h"
-     withFormField="true" placeholder="Temps de fin" [withIcon]="true">
-      </mat-timepicker>
+                <!--date de fin-->
 
-  </div>
+                <mat-form-field class="date" appearance="fill">
+                    <mat-label>Date de fin</mat-label>
+                    <input matInput formControlName="Date_fin" [matDatepicker]="EndDate" placeholder="mm/dd/yyyy" required>
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
+                    <mat-datepicker #EndDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
 
-  <mat-form-field class="location" appearance="fill">
-    <mat-label>Location</mat-label>
-    <input matInput placeholder="estm meknes route agourai ">
-  </mat-form-field>
-  
-  <mat-form-field appearance="fill" class="participant">
-    <mat-label>Les participants</mat-label>
-    <textarea matInput rows="4"></textarea>
-  </mat-form-field>
-</mat-dialog-content>
-<mat-divider></mat-divider>
+        <mat-grid-tile>
 
-<mat-dialog-actions align="center">
-  <button mat-button mat-dialog-close class="button is-rounded">Annuler</button>
-  <button mat-button class="button is-success is-rounded">Créer la réunion</button>
-</mat-dialog-actions>
+            <div class="controls-container">
+                <!--location-->
+                <mat-form-field class="location" appearance="fill">
+                    <mat-label>Location</mat-label>
+                    <input formControlName="location" matInput placeholder="estm meknes route agourai ">
+                </mat-form-field>
+
+                <!--les participants-->
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Les participants</mat-label>
+                    <textarea matInput formControlName="participants" rows="4"></textarea>
+                </mat-form-field>
+
+                <div class="buttons">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">{{service.form.controls['$key'].value?"Modifier" : "Ajouter"}}</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Annuler</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

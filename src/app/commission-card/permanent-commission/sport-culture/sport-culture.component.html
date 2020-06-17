@@ -1,5 +1,66 @@
-<section>
-    <cms-members></cms-members>
+<section class="section">
+    <div class="search-div">
+        <button mat-raised-button (click)="addMember()">
+        <mat-icon>add</mat-icon>Ajouter
+    </button>
+        <mat-form-field class="search-form-field" floatLabel="never">
+            <input matInput [(ngModel)]="searchKey" placeholder="Rechercher" autocomplete="off" (keyup)="applyFilter()">
+            <button mat-button matSuffix mat-icon-button aria-label="clear" *ngIf="searchKey" (click)="onSearchClear()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div class="is-paddingless table is-desktop is-mobile" style="overflow: auto;">
+        <mat-table [dataSource]="listData" matSort>
+            <ng-container matColumnDef="nom">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="prenom">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="mail">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="adresse">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Adresse </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.adresse}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="department">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Département </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.department}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="grade">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Grade </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.grade}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="onEdit(row)">  <mat-icon>launch</mat-icon>  </button>
+                    <button mat-icon-button color="warn" (click)="onDelete(row.$key)">  <mat-icon>delete_outline</mat-icon>  </button>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="loading">
+                <mat-footer-cell *matFooterCellDef colspan="6">
+                    loading data...
+                </mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="noData">
+                <mat-footer-cell *matFooterCellDef colspan="6">
+                    No data !
+                </mat-footer-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns : displayedColumns;"></mat-row>
+            <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide': listData != null}"></mat-footer-row>
+            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': ! (listData != null && listData.data.length ==0)}"></mat-footer-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5,10,15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
 </section>
 <section>
     <app-meetings></app-meetings>
