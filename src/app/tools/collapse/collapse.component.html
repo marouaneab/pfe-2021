@@ -1,9 +1,9 @@
 <div class="collapse-wrapper">
-	<div class="collapse-title" (click)="toggleCollapse()">
-		<ng-content select="collapse-title"></ng-content>
-		<mat-icon fontSet="material-icons-round">{{ !collapsed ? 'arrow_drop_down' : 'arrow_left' }}</mat-icon>
-	</div>
-	<div *ngIf="! collapsed" class="collapse-content">
-		<ng-content select="collapse-content"></ng-content>
-	</div>
+  <div class="collapse-title" (click)="toggleCollapse()">
+    <ng-content select="collapse-title"></ng-content>
+    <mat-icon fontSet="material-icons-round">{{ !collapsed ? 'arrow_drop_down' : 'arrow_left' }}</mat-icon>
+  </div>
+  <div @expand *ngIf="! collapsed" class="collapse-content" style="overflow: hidden">
+    <ng-content select="collapse-content"></ng-content>
+  </div>
 </div>

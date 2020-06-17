@@ -1,89 +1,151 @@
-<!--
-	# it's just a test of the Developper Mounir
--->
 <mat-sidenav-container class="sidenav-container">
-	<mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
-		[opened]="(isHandset$ | async) === false">
-		<mat-toolbar [style.height]="'' + toolbar._elementRef.nativeElement.offsetHeight+ 'px'" color="primary">
-			<mat-icon>dashboard</mat-icon>
-			<span>Dashboard</span>
-		</mat-toolbar>
-		<div class="padding">
-			<collapse *ngFor="let a of MenuData">
-				<collapse-title [link]="''">
-					{{a.title}}
-				</collapse-title>
-				<collapse-content>
-					<collapse *ngFor="let b of a.children">
-						<collapse-title [link]="b.children ? '' : '' + a.title + '/' + b.title">
-							{{ b.title }}
-						</collapse-title>
-						<collapse-content>
-							<collapse *ngFor="let c of b.children">
-								<collapse-title [link]="c.children ? '' : '' + a.title + '/' + b.title + '/' + c.title">
-									{{ c.title }}
-								</collapse-title>
-							</collapse>
-						</collapse-content>
-					</collapse>
-				</collapse-content>
-			</collapse>
-		</div>
-	</mat-sidenav>
-	<mat-sidenav-content style="background-color: #eaeef3;">
-		<mat-toolbar #toolbar color="primary" style="overflow: auto;">
-			<mat-toolbar-row>
-				<button mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-					<mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
-				</button>
-				<div class="image is-64x64 is-hidden-touch">
-					<img src="https://www.w3schools.com/howto/img_avatar.png"
-					     style="border-radius: 100%; border: 1px solid #b5b5b5;">
-				</div>
-					<div class="search-bar">
-						<mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
-							<mat-label>Search</mat-label>
-							<input type="search" matInput [(ngModel)]="value">
-							<div matSuffix class="is-flex">
-								<button *ngIf="value" (click)="value = ''" title="clear" @showHide
-							        mat-button mat-icon-button
-							        style="background-color: rgba(200, 200, 200, 0.3);" class="is-rounded">
-								<mat-icon>clear</mat-icon>
-							</button>
-								<div style="padding: 0 5px;"></div>
-								<button mat-button mat-icon-button class="pulse is-rounded">
-								<mat-icon>search</mat-icon>
-							</button>
-							</div>
-						</mat-form-field>
-					</div>
-					<div class="actions">
-						<button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
-						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewNotifications">
-							notifications
-						</mat-icon>
-					</button>
-						<button mat-button mat-icon-button [class.pulse]="hasNewMails">
-						<mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewMails">email
-						</mat-icon>
-					</button>
-						<button mat-button mat-icon-button>
-						<mat-icon>exit_to_app</mat-icon>
-					</button>
-					</div>
-			</mat-toolbar-row>
-		</mat-toolbar>
-		<!-- Add Content Here -->
-		<main class="columns is-marginless">
-			<div class="column">
-				<header class="has-text-centered is-size-2-fullhd is-size-3-tablet is-size-4-mobile">
-					Welcome {{user.name }}</header>
-				<div class="columns">
-					<div class="column">
-						<router-outlet name="content"></router-outlet>
-					</div>
-				</div>
-			</div>
-		</main>
-	</mat-sidenav-content>
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar [style.height]="'' + toolbar._elementRef.nativeElement.offsetHeight+ 'px'" color="primary">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </mat-toolbar>
+        <mat-nav-list style="align-content: stretch;">
+            <a mat-list-item routerLink="/dashboard" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+                <span class="text-icon">
+                <mat-icon>event</mat-icon>
+                <span>Calendrier</span>
+                </span>
+            </a>
+            <a class="padding" mat-list-item routerLink="./member" routerLinkActive="active">
+                <span class="text-icon">
+          <mat-icon>account_circle</mat-icon>
+          <span>
+            Membres
+          </span>
+                </span>
+            </a>
+            <mat-divider></mat-divider>
+            <a class="padding" mat-list-item routerLink="./events" routerLinkActive="active">
+                <span class="text-icon">
+          <mat-icon>group</mat-icon>
+          <span>Réunions</span>
+                </span>
+            </a>
+            <mat-divider></mat-divider>
+            <div>
+                <collapse>
+                    <collapse-title>
+                        <span class="text-icon">
+              <mat-icon>email</mat-icon>
+              <span>Boite de Messagerie</span>
+                        </span>
+                    </collapse-title>
+                    <collapse-content>
+                        <a mat-list-item>
+                            <span class="text-icon">
+                <mat-icon>send</mat-icon>
+                <span>Envoyé</span>
+                            </span>
+                        </a>
+                        <a mat-list-item routerLink="./mailBox" routerLinkActive="active">
+                            <span class="text-icon">
+                <mat-icon>done</mat-icon>
+                <span>Reçu</span>
+                            </span>
+                        </a>
+                    </collapse-content>
+                </collapse>
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+                <collapse>
+                    <collapse-title>
+                        <span class="text-icon">
+  <mat-icon>reorder</mat-icon>
+<span>Commissions</span>
+                        </span>
+                    </collapse-title>
+                    <collapse-content>
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Commissions permanentes
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-action-row *ngFor="let cms of Commission" style="text-align: left;">
+                                    <a mat-list-item [routerLink]="cms.link">
+                                        <span>
+                                            <span>{{cms.name}}</span>
+                                        </span>
+                                    </a>
+                                </mat-action-row>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Commissions non permanentes
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-action-row>
+                                    <a mat-list-item>
+                                        <span>
+                                            <span></span>
+                                        </span>
+                                    </a>
+                                </mat-action-row>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </collapse-content>
+                </collapse>
+            </div>
+            <mat-divider></mat-divider>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: #eaeef3;">
+        <mat-toolbar #toolbar color="primary" style="overflow: auto;">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+        </button>
+                <div class="search-bar">
+                    <mat-form-field #f [style.width]="width(f._elementRef.nativeElement)" appearance="outline">
+                        <mat-label>Recherche</mat-label>
+                        <input type="search" matInput [(ngModel)]="value">
+                        <div matSuffix class="is-flex">
+                            <button *ngIf="value" (click)="value = ''" title="clear" @showHide mat-button mat-icon-button style="background-color: rgba(200, 200, 200, 0.3);" class="is-rounded">
+                <mat-icon>clear</mat-icon>
+              </button>
+                            <div style="padding: 0 5px;"></div>
+                            <button mat-button mat-icon-button class="pulse is-rounded">
+                <mat-icon>search</mat-icon>
+              </button>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="image is-48x48" style="border-radius: 100%; border: 1px solid #b5b5b5;">
+                </div>
+                <div class="actions">
+                    <button mat-button mat-icon-button [class.pulse]="hasNewNotifications">
+            <mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewNotifications">
+              notifications
+            </mat-icon>
+          </button>
+                    <button mat-button mat-icon-button [class.pulse]="hasNewMails" routerLink="./mailBox">
+            <mat-icon [matBadge]="'1'" matBadgeColor="accent" [matBadgeHidden]="! hasNewMails">email
+            </mat-icon>
+          </button>
+                    <button mat-button mat-icon-button>
+            <mat-icon>help</mat-icon>
+          </button>
+
+                    <button mat-button mat-icon-button>
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <!-- Add Content Here -->
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
 </mat-sidenav-container>

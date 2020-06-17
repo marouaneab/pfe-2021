@@ -1,12 +1,1 @@
-<a *ngIf="hasLink; else item" [href]="link">
-	<span *ngIf="false; else title"></span>
-</a>
-<ng-template #item>
-	<p>
-		<span *ngIf="false; else title"></span>
-	</p>
-</ng-template>
-
-<ng-template #title>
-  <ng-content></ng-content>
-</ng-template>
+<div><ng-content></ng-content></div>

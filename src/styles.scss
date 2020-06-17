@@ -1,49 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');*/
-@import "assets/bulma/sass/utilities/_all.scss";
-@import "assets/bulma/sass/base/_helpers.scss";
-@import "assets/bulma/sass/grid/_columns.scss";
-@import "assets/bulma/sass/elements/_title.scss";
-@import "assets/bulma/sass/elements/_image.scss";
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');
+@import "assets/bulma/sass/utilities/all";
+@import "assets/bulma/sass/base/helpers";
+@import "assets/bulma/sass/grid/columns";
+@import "assets/bulma/sass/elements/title";
+@import "assets/bulma/sass/elements/image";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+$card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+@import "assets/bulma/sass/components/card";
+@import "assets/bulma/sass/layout/section";
 
 /*********** Config My Theme for Angular Material Components ************/
 @import '~@angular/material/theming';
 /*********** Config Primary/Accent Color for Site ************/
 $primary: map_get($mat-indigo, A400);
 $accent: map_get($mat-pink, A400);
-@include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
+
 $candy-app-primary: mat-palette($mat-indigo, A200, A100, A400);
 $candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 $candy-app-warn: mat-palette($mat-red);
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+@include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 @include angular-material-theme($candy-app-theme);
 /*********************************/
-
-html, body {height: 100%;}
-
-.primary {
-  &.color {
-    color: $primary;
-  }
-  background-color: $primary !important;
-  color: white;
+html {
+  overflow: auto !important;
+}
+html, body {
+  height: 100%;
 }
 
-.accent {
-  &.color {
-    color: $accent;
-  }
-  background-color: $accent !important;
-  color: white;
+*:not(mat-icon) {
+  margin: 0;
+  font-family: Montserrat, sans-serif !important;
 }
 
-*:not(mat-icon) {margin: 0; font-family: Montserrat, sans-serif !important;}
-* {font-size: 16px;}
-.padding {padding: .2rem .5rem;}
+mat-icon {
+  font-size: 24px !important
+}
+
+.padding {
+  padding: .5rem 1rem;
+}
 
 mat-toolbar-row {
   height: auto !important;
+  font-size: 16px;
+
   &, & > div {
     @extend .padding;
   }
@@ -51,6 +54,7 @@ mat-toolbar-row {
 
 button {
   text-transform: uppercase;
+
   &.no-up {
     text-transform: none;
   }
@@ -59,25 +63,76 @@ button {
 .actions {
   display: flex;
   flex-wrap: nowrap;
+
   button {
-    &:not(:first-child) {margin-left: 14px !important;}
-    &:not(:last-child) {margin-right: 14px !important;}
+    &:not(:first-child) {
+      margin-left: 14px !important;
+    }
+
+    &:not(:last-child) {
+      margin-right: 14px !important;
+    }
   }
 }
 
 .pulse {
   border-radius: 100%;
   background-color: rgba(200, 200, 200, 0.3);
-  box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
   animation: pulse 2s infinite;
-  &:hover {animation: none;}
+
+  &:hover {
+    animation: none;
+  }
 }
 
-@mixin animation($name, $radius: 15px){
+@mixin animation($name, $radius: 15px) {
   @keyframes #{$name} {
-    0% {box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);}
-    100% {box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);}
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 $radius rgba(0, 0, 0, 0);
+    }
   }
 }
 
 @include animation(pulse);
+
+section:not(:first-of-type) {
+  margin-top: -3rem !important;
+}
+
+.btnGroupH {
+  &:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #a6a6a6;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.accent {
+  background-color: map-get($candy-app-accent, default);
+  color: white;
+}
+.primary {
+  background-color: map-get($candy-app-primary, default);
+  color: white;
+}
+span, div {
+  &.text-icon {
+    display: inline-flex;
+    align-items: center;
+    mat-icon {
+      margin: 0 6px;
+    }
+  }
+}
+
+.mat-form-field-outline-gap {
+  width: 75px !important;
+}

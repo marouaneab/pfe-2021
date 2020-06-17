@@ -1,0 +1,45 @@
+<div class="padding">
+  <h1>Mail Box</h1>
+  <hr>
+  <br>
+  <div class="columns">
+    <div class="column">
+      <div class="card" style="height: 100%">
+        <div class="card-content padding" style="background-color:#fff;">
+          <div *ngFor="let msg of messages; let i = index; let last = last">
+            <div style="display: flex; width:100%; align-items: center">
+              <button
+                [class.activeMsg]="msg === selectedMsg"
+                style="width: -moz-available; text-align: left" mat-button
+                (click)="setSelectedMsg(msg)">
+                {{msg.from}}
+              </button>
+              <div *ngIf="! msg.read"
+                   style="display: inline-block; width: 10px; height: 10px; border-radius: 100%; margin-left: 6px"
+                   class="accent">
+              </div>
+            </div>
+            <mat-divider *ngIf="! last"></mat-divider>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-thirds">
+      <div class="card" style="background-color:#fff; height: 100%">
+        <div class="card-content is-paddingless">
+          <app-message *ngIf="selectedMsg; else noMsgSelected">
+            <span class="msg-from" [innerHTML]="selectedMsg.from"></span>
+            <span class="msg-content" [innerHTML]="selectedMsg.content"></span>
+            <span *ngIf="selectedMsg.about" class="msg-about"
+                  [innerHTML]="'<p><b>About: </b>' + selectedMsg.about + '</p><hr>'"></span>
+          </app-message>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noMsgSelected>
+  <p class="padding">Select Message Please</p>
+  <img src="https://www.jove.com/img/flying_email_illustration.png"
+       alt="Welcome" style="width: 100%">
+</ng-template>

@@ -1,0 +1,72 @@
+<section>
+  <div class="columns is-marginless section is-gapless">
+    <div class="column">
+      <div class="columns">
+        <div class="column">
+          <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label>Recherche</mat-label>
+            <input [(ngModel)]="searchWord" matInput pattern="[-a-zàéèâ]*" placeholder="Rechercher un membre">
+            <div matSuffix>
+              <mat-icon>search</mat-icon>
+            </div>
+            <mat-error>Entrer un nom valid s'il vous plait !</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <article id="loi" class="card">
+        <header class="card-header">
+          <div class="card-header-title">Membres par loi</div>
+          <div class="card-header-icon">
+            <button mat-raised-button mat-icon-button color="accent"><mat-icon>edit</mat-icon></button>
+          </div>
+        </header>
+        <div class="card-content columns" style="flex-wrap: wrap">
+          <app-member class="column" *ngFor="let member of (arr | filter: Loi: searchWord.toUpperCase())">
+            <img class="image" src="https://www.w3schools.com/howto/img_avatar.png">
+            <div class="name">
+              <div>{{ member.firstName }}</div>
+              <div>{{ member.lastName }}</div>
+            </div>
+          </app-member>
+        </div>
+      </article>
+      <article id="designe" class="card">
+        <header class="card-header">
+          <div class="card-header-title">Membres désignés</div>
+          <div class="card-header-icon">
+            <button mat-raised-button mat-icon-button color="accent"><mat-icon>edit</mat-icon></button>
+          </div>
+        </header>
+        <div class="card-content columns" style="flex-wrap: wrap">
+          <app-member class="column" *ngFor="let member of arr | filter: Design: searchWord.toUpperCase()">
+            <img class="image" src="https://www.w3schools.com/howto/img_avatar.png">
+            <div class="name">
+              <div>{{ member.firstName }}</div>
+              <div>{{ member.lastName }}</div>
+            </div>
+          </app-member>
+        </div>
+      </article>
+      <article id="elu" class="card">
+        <header class="card-header">
+          <div class="card-header-title">Membres Elus</div>
+          <div class="card-header-icon">
+            <button mat-raised-button mat-icon-button color="accent"><mat-icon>edit</mat-icon></button>
+          </div>
+        </header>
+        <div class="card-content columns" style="flex-wrap: wrap">
+          <app-member class="column" *ngFor="let member of arr | filter : Elu : searchWord.toUpperCase()">
+            <img class="image" src="https://www.w3schools.com/howto/img_avatar.png">
+            <div class="name">
+              <div>{{ member.firstName }}</div>
+              <div>{{ member.lastName }}</div>
+            </div>
+          </app-member>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<ng-template #noOne>
+  <div class="name">No One, Add SomeOne ?</div>
+</ng-template>

@@ -1,0 +1,31 @@
+<div class="columns is-marginless section is-gapless ">
+  <div class="column is-three-fifths ">
+    <div class="card is-mobile is-desktop" style="height: 100%">
+      <div class="card-header" style="border-bottom: 1px solid #a6a6a6">
+        <div class="card-header-title">
+          <div class="text-icon is-size-4">
+            <mat-icon>event</mat-icon>
+            <span>Events</span>
+          </div>
+        </div>
+        <button (click)="addEvent()" mat-flat-button color="accent" style="border-radius: 0">
+          <span style="display: flex; align-items: center; gap: 2px">
+            <mat-icon>add</mat-icon>
+            Create new Event
+          </span>
+        </button>
+      </div>
+      <div class="card-content">
+        There's no event on {{selectedDate | date}}
+      </div>
+    </div>
+  </div>
+  <aside class="column is-mobile is-desktop" style="margin-left: 18px" >
+    <mat-calendar
+      class="card"
+      style="background-color: white"
+      [selected]="selectedDate"
+      (selectedChange)="onSelect($event)">
+  </mat-calendar>
+  </aside>
+</div>

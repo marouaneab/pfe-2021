@@ -1,4 +1,4 @@
-{
+ { 
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -23,4 +23,4 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }
-}
+ } 
