@@ -1,17 +1,18 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatBadgeModule,
   MatButtonModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatInputModule,
-  MatToolbarModule,
-  MatExpansionModule,
-  MatDatepickerModule,
   MatNativeDateModule,
+  MatToolbarModule,
 } from '@angular/material';
 import {DashboardComponent} from './main-page/dashboard.component';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -23,7 +24,6 @@ import {CollapseTitleComponent} from './tools/collapse/collapse-title/collapse-t
 import {CollapseContentComponent} from './tools/collapse/collapse-content/collapse-content.component';
 import {AdminComponent} from './main-page/dashboard/admin/admin.component';
 import {UserCardComponent} from './user-card/user-card.component';
-import {MatCheckboxModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
@@ -48,27 +48,27 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MailBoxComponent} from './mail-box/mail-box.component';
 import {MessageComponent} from './mail-box/message/message.component';
-import { EventCardComponent } from './event-card/event-card.component';
-import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './event-card/events/events.component';
-import { AddEventsComponent } from './event-card/add-events/add-events.component';
-import { MatTimepickerModule } from 'mat-timepicker';
-import { MembersComponent } from './members/members.component';
-import { MemberComponent } from './members/member/member.component';
-import { FilterPipe } from './pipes/filter.pipe';
-import { PedagogiqueComponent } from './commission-card/permanent-commission/pedagogique/pedagogique.component';
-import { BudgetComponent } from './commission-card/permanent-commission/budget/budget.component';
-import { RechercheComponent } from './commission-card/permanent-commission/recherche/recherche.component';
-import { SportCultureComponent } from './commission-card/permanent-commission/sport-culture/sport-culture.component';
-import { MeetingsComponent } from './commission-card/meetings/meetings.component';
-import { CMSMembersComponent } from './commission-card/cms-members/cms-members.component';
-import { AddMemberComponent } from './commission-card/cms-members/add-member/add-member.component';
-import { EditMeetingComponent } from './commission-card/meetings/edit-meeting/edit-meeting.component';
-import { AddMeetingComponent } from './commission-card/meetings/add-meeting/add-meeting.component';
-import { MemberService } from './services/member.service';
+import {EventCardComponent} from './event-card/event-card.component';
+import {LoginComponent} from './login/login.component';
+import {EventsComponent} from './event-card/events/events.component';
+import {AddEventsComponent} from './event-card/add-events/add-events.component';
+import {MatTimepickerModule} from 'mat-timepicker';
+import {MembersComponent} from './members/members.component';
+import {EditMemberModalComponent, MemberComponent, SnackBarLoadingComponent} from './members/member/member.component';
+import {FilterPipe} from './pipes/filter.pipe';
+import {PedagogiqueComponent} from './commission-card/permanent-commission/pedagogique/pedagogique.component';
+import {BudgetComponent} from './commission-card/permanent-commission/budget/budget.component';
+import {RechercheComponent} from './commission-card/permanent-commission/recherche/recherche.component';
+import {SportCultureComponent} from './commission-card/permanent-commission/sport-culture/sport-culture.component';
+import {MeetingsComponent} from './commission-card/meetings/meetings.component';
+import {CMSMembersComponent} from './commission-card/cms-members/cms-members.component';
+import {AddMemberComponent} from './commission-card/cms-members/add-member/add-member.component';
+import {EditMeetingComponent} from './commission-card/meetings/edit-meeting/edit-meeting.component';
+import {AddMeetingComponent} from './commission-card/meetings/add-meeting/add-meeting.component';
+import {MemberService} from './services/member.service';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireStorageModule} from '@angular/fire/storage';
-import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import {MatConfirmDialogComponent} from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +87,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     AddEventsComponent,
     MembersComponent,
     MemberComponent,
+    EditMemberModalComponent,
     FilterPipe,
     PedagogiqueComponent,
     BudgetComponent,
@@ -97,7 +98,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     AddMemberComponent,
     EditMeetingComponent,
     AddMeetingComponent,
-    MatConfirmDialogComponent
+    MatConfirmDialogComponent,
+    SnackBarLoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -156,7 +158,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
   ],
   providers: [MemberService],
   bootstrap: [AppComponent],
-  entryComponents : [AddEventsComponent,AddMemberComponent,MatConfirmDialogComponent],
+  entryComponents: [AddEventsComponent, AddMemberComponent, MatConfirmDialogComponent],
 })
 export class AppModule {
 }
