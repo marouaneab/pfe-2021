@@ -25,7 +25,7 @@ export class AddMemberComponent implements OnInit {
       private storage : AngularFireStorage, private notificationService : NotificationService,
       public dialogRef : MatDialogRef<AddMemberComponent>) { }
       
-    ngOnInit() { }  
+    ngOnInit() {}  
 
     /*
     showPreview(event: any) {

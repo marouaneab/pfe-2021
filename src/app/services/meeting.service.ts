@@ -9,7 +9,7 @@ export class MeetingService {
 
   constructor(private db : AngularFireDatabase) { }
 
-  MeetingList : AngularFireList<any>;
+  MeetingList : AngularFireList <any>;
 
   form : FormGroup = new FormGroup ({
     $key : new FormControl(null),
@@ -17,7 +17,6 @@ export class MeetingService {
     location : new FormControl('',[Validators.minLength(3),Validators.required]),
     objet : new FormControl('',[Validators.minLength(8),Validators.required]),
     Date_debut : new FormControl('',Validators.required),
-    Date_fin : new FormControl('',Validators.required),
     participants : new FormControl(''),
   });
 
@@ -28,7 +27,6 @@ export class MeetingService {
       location : '',
       objet : '',
       Date_debut: '',
-      Date_fin : '' ,
       participants : ''
     });
   }
@@ -44,7 +42,6 @@ export class MeetingService {
       location : meeting.location,
       objet : meeting.objet,
       Date_debut: meeting.Date_debut,
-      Date_fin : meeting.Date_fin ,
       participants : meeting.participants
     });
   }
@@ -55,7 +52,6 @@ export class MeetingService {
       location : meeting.location,
       objet : meeting.objet,
       Date_debut: meeting.Date_debut,
-      Date_fin : meeting.Date_fin ,
       participants : meeting.participants
     });
   }

@@ -3,7 +3,7 @@ import { MeetingService } from 'src/app/services/meeting.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 @Component({
   selector: 'app-add-events',
   templateUrl: './add-events.component.html',
@@ -14,11 +14,13 @@ import { MatDialogRef } from '@angular/material';
 
 export class AddEventsComponent implements OnInit {
 
-  constructor(public service : MeetingService, private db : AngularFireDatabase,
+  constructor(public service : MeetingService,
     private notificationService : NotificationService,
     public dialogRef : MatDialogRef<AddEventsComponent>) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.service.getMeetings();
+  }
   
   onClear() {
     this.service.form.reset();
@@ -38,6 +40,13 @@ export class AddEventsComponent implements OnInit {
     }
   }
   
+  formatDate(e : MatDatepickerInputEvent<Date>,field : string) {
+    let convertDate=new Date(e.target.value).toISOString().substring(0,10);
+    this.service.form.get(field).setValue(convertDate, {
+      onlyself : true
+    });
+  }
+
   get minValue() {
     const val=new Date();
     val.setHours(0);
