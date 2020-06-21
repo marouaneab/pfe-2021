@@ -1,12 +1,12 @@
 export interface Member {
-  id: number;
+  id?: string;
   image?: string;
-  classification ?: Classification;
-  grade: Grade;
   nom: string;
   prenom: string;
   mail: string;
   adresse ?: string;
+  grade: Grade;
+  classification ?: Classification;
   department ?: Department;
 }
 
@@ -15,6 +15,7 @@ export enum Classification {
   Design = 'membre désigné',
   Elu = 'membre elu'
 }
+
 export enum Department {
   GI = 'Informatique',
   GE = 'Eléctrique',
@@ -30,7 +31,7 @@ export enum Grade {
   PH = 'professeur habilité',
   PES = 'professeur d\'enseignement supérieur',
   Admin = 'administrateur',
-  Tech = 'technecien',
+  Tech = 'technicien',
   Etud = 'étudiant',
   Membre = 'membre'
 }

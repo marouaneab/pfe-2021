@@ -1,0 +1,96 @@
+<form [formGroup]="form">
+    <h2 mat-dialog-title class="primary title padding">
+        <ng-container *ngIf="member; else New">
+            <span style="margin-right: 12px;"><img [src]="image" alt="photo"></span>
+            <span>{{ (member?.nom + ' ' + member?.prenom) | uppercase }}</span>
+        </ng-container>
+    </h2>
+    <ng-template #New>
+        Ajouter un membre
+    </ng-template>
+    <mat-dialog-content>
+        <div class="columns">
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput [formControl]="f.l_name" [ngModel]="member?.nom">
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput [formControl]="f.f_name" [ngModel]="member?.prenom">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="f.mail" [ngModel]="member?.mail">
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Adresse</mat-label>
+                    <input matInput [formControl]="f.address" [ngModel]="member?.adresse || null">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Grade</mat-label>
+                    <mat-select [formControl]="f.grade" [ngModel]="memSrv.grade2str(member?.grade) || null">
+                        <mat-option *ngFor="let g of grades" [value]="g">{{ gg[g] }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Classification</mat-label>
+                    <mat-select [formControl]="f.clsf" [ngModel]="(memSrv.class2str(clsf ? clsf : member?.classification)) || null">
+                        <mat-option *ngFor="let c of classes" [value]="c">{{ cc[c] }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Département</mat-label>
+                    <mat-select [formControl]="f.dept" [ngModel]="memSrv.dep2str(member?.department) || null">
+                        <mat-option *ngFor="let d of depts" [value]="d">{{ dd[d] }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="null">Annuler</button>
+        <button mat-button type="reset">Reset</button>
+        <button mat-flat-button color="accent" type="submit" [disabled]="form.invalid || !form.dirty"
+                [mat-dialog-close]="form.value">{{member ? 'Enregistrer' : 'Ajouter' }}</button>
+    </mat-dialog-actions>
+</form>
+
+<style>
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 64px;
+    }
+    .title > span:last-child {
+        flex-grow: 1;
+    }
+    .title > span:first-child {
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 100%;
+        height: 100px;
+        width: 100px;
+        border: 1px solid wheat;
+    }
+    h2, mat-select, mat-option {
+        text-transform: capitalize;
+    }
+</style>

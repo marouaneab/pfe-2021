@@ -6,15 +6,10 @@
 @import "assets/bulma/sass/grid/columns";
 @import "assets/bulma/sass/elements/title";
 @import "assets/bulma/sass/elements/image";
+@import "assets/bulma/sass/grid/tiles";
+@import "assets/bulma/sass/elements/box";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
-$card-shadow: 0 3px 6px rgba(0,
-0,
-0,
-0.16),
-0 3px 6px rgba(0,
-0,
-0,
-0.23);
+$card-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 @import "assets/bulma/sass/components/card";
 @import "assets/bulma/sass/layout/section";
 
@@ -24,22 +19,12 @@ $card-shadow: 0 3px 6px rgba(0,
 
 /*********** Config Primary/Accent Color for Site ************/
 
-$primary: map_get($mat-indigo,
-A400);
-$accent: map_get($mat-pink,
-A400);
-$candy-app-primary: mat-palette($mat-indigo,
-A200,
-A100,
-A400);
-$candy-app-accent: mat-palette($mat-pink,
-A200,
-A100,
-A400);
+$primary: map_get($mat-indigo, A400);
+$accent: map_get($mat-pink, A400);
+$candy-app-primary: mat-palette($mat-indigo, A200, A100, A400);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 $candy-app-warn: mat-palette($mat-red);
-$candy-app-theme: mat-light-theme($candy-app-primary,
-$candy-app-accent,
-$candy-app-warn);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 @include mat-core(mat-typography-config($font-family: 'Montserrat , sans serif'));
 @include angular-material-theme($candy-app-theme);
 
@@ -106,8 +91,7 @@ button {
     }
 }
 
-@mixin animation($name,
-$radius: 15px) {
+@mixin animation($name, $radius: 15px) {
     @keyframes #{$name} {
         0% {
             box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
@@ -146,13 +130,15 @@ section:not(:first-of-type) {
 }
 
 span,
-div {
+div,
+collapse-title {
     &.text-icon {
-        display: inline-flex;
-        align-items: center;
-        mat-icon {
-            margin: 0 6px;
-        }
+      display: inline-flex;
+      align-items: center;
+
+      mat-icon {
+        margin: 0 6px;
+      }
     }
 }
 
@@ -221,11 +207,11 @@ mat-footer-row mat-footer-cell {
 }
 
 .search-form-field div.mat-form-field-infix {
-    border-top: 0px;
+    border-top: 0;
 }
 
 .search-form-field div.mat-form-field-wrapper {
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 
 .search-form-field div.mat-form-field-suffix button {
@@ -233,10 +219,19 @@ mat-footer-row mat-footer-cell {
     width: 32px;
 }
 
+form {
+  mat-form-field {
+    width: 100%;
+    .mat-form-field-infix {
+      width: 100%;
+    }
+  }
+}
+
 //dialog box
 .confirm-dialog-container .mat-dialog-container {
     border-radius: .25em .25em .4em .4em;
-    padding: 0px;
+    padding: 0;
 }
 
 .confirm-dialog-container .content {
@@ -260,7 +255,7 @@ mat-footer-row mat-footer-cell {
     width: 50%;
     background-color: #fc7169;
     color: white;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .confirm-dialog-container #yesBtn {
@@ -268,11 +263,16 @@ mat-footer-row mat-footer-cell {
     width: 50%;
     background-color: #b6bece;
     color: white;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .confirm-dialog-container span.content-span {
     padding: 35px 16px;
     text-align: center;
     font-size: 20px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }

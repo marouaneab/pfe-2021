@@ -1,4 +1,4 @@
-<div class="collapse-wrapper">
+<div class="collapse-wrapper" [class.expanded]="!collapsed">
   <div class="collapse-title" (click)="toggleCollapse()">
     <ng-content select="collapse-title"></ng-content>
     <mat-icon fontSet="material-icons-round">{{ !collapsed ? 'arrow_drop_down' : 'arrow_left' }}</mat-icon>
